@@ -1,3 +1,4 @@
+<!-- All rights reserved ©Firas Mhmood on this website -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -10,101 +11,92 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:ital,wght@1,400&display=swap" rel="stylesheet">
     <style>
-        /* Basic settings, font, and color customization */
+  :root{
+   
+    --bg1: #0b1220;   
+    --glow1: #22d3ee; 
+    --glow2: #27d333; 
+    --dots: rgba(255,255,255,.04);
+  }
+
+  body { position: relative; background: var(--bg1); }
+
+  body::before{
+    content:"";
+    position: fixed;
+    inset:-20vmax;
+    z-index:-2;
+    filter: blur(60px);
+    background:
+      radial-gradient(40vmax 40vmax at 15% 20%, color-mix(in oklab, var(--glow1) 35%, transparent) 0%, transparent 60%),
+      radial-gradient(35vmax 35vmax at 85% 80%, color-mix(in oklab, var(--glow2) 28%, transparent) 0%, transparent 60%),
+      radial-gradient(30vmax 30vmax at 70% 15%, color-mix(in oklab, var(--glow1) 18%, transparent) 0%, transparent 65%);
+    animation: bgFloat 24s ease-in-out infinite alternate;
+    pointer-events:none;
+  }
+
+  body::after{
+    content:"";
+    position: fixed;
+    inset:0;
+    z-index:-1;
+    background-image:
+      radial-gradient(circle at 1px 1px, var(--dots) 1px, transparent 1px);
+    background-size: 22px 22px;
+    pointer-events:none;
+  }
+
+  @keyframes bgFloat{
+    0%   { transform: translate3d(0,0,0) scale(1); }
+    100% { transform: translate3d(0,-2%,0) scale(1.03); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    body::before{ animation: none; }
+  }
+
+  .light, [data-theme="light"] {
+    --bg1: #f7fafc;
+    --dots: rgba(0,0,0,.06);
+  }
+
         body {
-            background-color: #101828; /* New background color */
+            background-color: #101828;
             color: #a0aec0;
             font-family: 'Fira Code', monospace;
             font-style: italic;
             position: relative;
             min-height: 100vh;
         }
-        h1, h2, h3, h4, a, button {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        /* Scrollbar customization */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1a202c;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #4a5568;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #718096;
-        }
-        
-        /* Hide sections by default */
-        .page-section, .writeup-view {
-            display: none;
-        }
-        .page-section.active, .writeup-view.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Unified Card hover effect */
-        .card {
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease-in-out;
-        }
-        .card:hover {
-            transform: scale(1.05);
-        }
-        .card .card-bg-image {
-            transition: transform 0.3s ease-in-out;
-        }
-        .card:hover .card-bg-image {
-            transform: scale(1.1);
-        }
-
+        h1, h2, h3, h4, a, button { font-family: 'Inter', sans-serif; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a202c; }
+        ::-webkit-scrollbar-thumb { background: #4a5568; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #718096; }
+        .page-section, .writeup-view { display: none; }
+        .page-section.active, .writeup-view.active { display: block; animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from {opacity:0; transform: translateY(10px);} to {opacity:1; transform: translateY(0);} }
+        .card { position: relative; overflow: hidden; transition: transform 0.3s ease-in-out; }
+        .card:hover { transform: scale(1.05); }
+        .card .card-bg-image { transition: transform 0.3s ease-in-out; }
+        .card:hover .card-bg-image { transform: scale(1.1); }
         .card .card-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1rem;
+            position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem;
             background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
             transition: all 0.3s ease-in-out;
         }
-
         .card .description {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
+            max-height: 0; opacity: 0; overflow: hidden;
             transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-            font-size: 0.9rem; /* Smaller font for description */
+            font-size: 0.9rem;
         }
-
-        .card:hover .card-content {
-            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1));
-        }
-
-        .card:hover .description {
-            max-height: 200px; /* Adjust as needed */
-            opacity: 1;
-            margin-top: 0.5rem;
-        }
-
-        .card:hover .card-title {
-            color: #48bb78; /* Green color on hover */
-        }
-
+        .card:hover .card-content { background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1)); }
+        .card:hover .description { max-height: 200px; opacity: 1; margin-top: 0.5rem; }
+        .card:hover .card-title { color: #48bb78; }
     </style>
 </head>
 <body class="text-gray-300">
 
-    <!-- Header and Navigation -->
+    <!--Navigation -->
     <header class="bg-gray-900/80 backdrop-blur-sm border-b border-gray-700">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#home" class="text-xl font-bold text-green-500 tracking-wider nav-link">Firas Mahmoud</a>
@@ -259,7 +251,7 @@
                     <div class="card bg-gray-800/50 rounded-lg border-2 border-yellow-400 shadow-lg">
                         <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('images/13.jpeg');"></div>
                         <div class="card-content">
-                            <h3 class="card-title text-2xl font-bold text-white">4hatsCTF AABU</h3>
+                            <h3 class="card-title text-2xl font-bold text-white">4hatsCTF AABU Online</h3>
                             <p class="text-gray-400">OCT 2025</p>
                             <div class="description">
                                 <p class="text-gray-300 mt-2">Internal competition at Al al-Bayt University.</p>
@@ -273,11 +265,8 @@
             </div>
         </section>
         
-        <!-- Write-ups Section -->
         <section id="writeups" class="page-section">
-            <!-- This is the main container for all write-up views -->
             <div id="writeup-content">
-                <!-- View 1: Competitions List -->
                 <div id="writeups-competitions" class="writeup-view active">
                      <div class="w-full h-64 bg-cover bg-center flex items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/6.jpeg');"></div>
@@ -290,7 +279,7 @@
                             <div class="card bg-gray-800/50 rounded-lg border-2 border-green-400 shadow-lg cursor-pointer" data-competition="4hatsCTF AABU">
                                 <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('images/5.jpeg');"></div>
                                 <div class="card-content">
-                                    <h3 class="card-title text-2xl font-bold text-white">4hatsCTF AABU</h3>
+                                    <h3 class="card-title text-2xl font-bold text-white">4hatsCTF AABU ONLINE</h3>
                                     <p class="text-gray-400">OCT 2025</p>
                                 </div>
                             </div>
@@ -298,24 +287,14 @@
                     </div>
                 </div>
 
-                <!-- View 2: Categories List -->
-                <div id="writeups-categories" class="writeup-view">
-                    <!-- Content will be generated by JS -->
-                </div>
+                <div id="writeups-categories" class="writeup-view"></div>
 
-                <!-- View 3: Challenges List -->
-                <div id="writeups-challenges" class="writeup-view">
-                    <!-- Content will be generated by JS -->
-                </div>
+                <div id="writeups-challenges" class="writeup-view"></div>
 
-                <!-- View 4: Solution -->
-                <div id="writeups-solution" class="writeup-view">
-                    <!-- Content will be generated by JS -->
-                </div>
+                <div id="writeups-solution" class="writeup-view"></div>
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="page-section pb-16">
             <div class="w-full h-64 bg-cover bg-center flex items-center justify-center relative overflow-hidden">
                 <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/10.jpeg');"></div>
@@ -375,7 +354,6 @@
             const hubCards = document.querySelectorAll('.hub-card');
             const contactForm = document.getElementById('contact-form');
 
-            // --- Data for Write-ups ---
             const writeupsData = {
                 "4hatsCTF AABU": {
                     banner: 'images/10.jpeg',
@@ -384,47 +362,58 @@
                         "PWN": {
                             image: 'images/1.jpeg',
                             challenges: [
-                                { name: 'pwn1.md', solution: 'Solution for pwn1...', image: 'images/21.jpeg' },
-                                { name: 'pwn2.md', solution: 'Solution for pwn2...', image: 'images/20.jpeg' }
+                                { name: '4hats shop', solution: 'Solution for pwn1...', image: 'images/21.jpeg', url: 'https://medium.com/@username/pwn1' },
                             ]
                         },
                         "MISC": {
                             image: 'images/2.jpeg',
                             challenges: [
-                                { name: 'misc1.md', solution: 'Solution for misc1...', image: 'images/13.jpeg' }
+                                { name: 'Mute the Middle', solution: 'Solution for misc1...', image: 'images/13.jpeg', url: 'https://medium.com/@username/misc1' },
+                                { name: 'Line of Death', solution: 'Solution for misc2...', image: 'images/11.jpeg', url: 'https://medium.com/@username/misc1' },
+                                { name: 'Hidden Arcade', solution: 'Solution for misc3...', image: 'images/16.jpeg', url: 'https://medium.com/@username/misc1' },
+                                { name: 'COINgine', solution: 'Solution for misc4...', image: 'images/14.jpeg', url: 'https://medium.com/@username/misc1' }
+                                
                             ]
                         },
-                         "OSINT": {
+                        "OSINT": {
                             image: 'images/3.jpeg',
                             challenges: [
-                                { name: 'osint1.md', solution: 'Solution for osint1...', image: 'images/19.jpeg' }
+                                { 
+                                    name: 'Whispers in the Wind',
+                                    solution: 'Solution for osint1...',
+                                    image: 'images/19.jpeg',
+                                    url: 'https://medium.com/@username/whispers-in-the-wind'
+                                },
+                                { 
+                                    name: 'SpongeBob',
+                                    solution: 'Solution for osint2...',
+                                    image: 'images/18.jpeg',
+                                    url: 'https://medium.com/@username/spongebob'
+                                }
                             ]
                         },
                         "Crypto": {
                             image: 'images/4.jpeg',
                             challenges: [
-                                { name: 'MESSI10.md', solution: 'SOON...', image: 'images/18.jpeg' },
-                                { name: 'Shafeeq\'s Coral Notes.md', solution: 'SOON...', image: 'images/11.jpeg' },
-                                { name: 'Beep64.md', solution: 'SOON...', image: 'images/2.jpeg' },
-                                { name: 'Trust Me.md', solution: 'SOON...', image: 'images/7.jpeg' }
+                                { name: 'MESSI10.md', solution: 'SOON...', image: 'images/18.jpeg', url: 'https://medium.com/@username/messi10' },
+                                { name: 'Shafeeq\'s Coral Notes.md', solution: 'SOON...', image: 'images/11.jpeg', url: 'https://medium.com/@username/coral-notes' },
+                                { name: 'Beep64.md', solution: 'SOON...', image: 'images/2.jpeg', url: 'https://medium.com/@username/beep64' },
+                                { name: 'Trust Me.md', solution: 'SOON...', image: 'images/7.jpeg', url: 'https://medium.com/@username/trust-me' }
                             ]
                         }
                     }
                 }
-                // Add more competitions here
             };
 
-            // --- Navigation Functions ---
             function showPage(pageId) {
                 pageSections.forEach(section => section.classList.remove('active'));
                 const activePage = document.getElementById(pageId);
                 if (activePage) activePage.classList.add('active');
                 mobileMenu.classList.add('hidden');
-                // Reset write-ups view if navigating away
                 if (pageId !== 'writeups') {
                     showWriteupView('writeups-competitions');
                 }
-                 window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
 
             navLinks.forEach(link => {
@@ -438,15 +427,12 @@
             hubCards.forEach(card => {
                 card.addEventListener('click', function() {
                     const pageId = this.dataset.target;
-                    if (pageId) {
-                        showPage(pageId);
-                    }
+                    if (pageId) showPage(pageId);
                 });
             });
 
             mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
             
-            // --- Contact Form Logic ---
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const form = e.target;
@@ -457,9 +443,7 @@
                 fetch(action, {
                     method: 'POST',
                     body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    headers: { 'Accept': 'application/json' }
                 }).then(response => {
                     if (response.ok) {
                         status.innerHTML = "Thanks for your submission!";
@@ -472,16 +456,15 @@
                             } else {
                                 status.innerHTML = "Oops! There was a problem submitting your form";
                             }
-                             status.style.color = 'red';
+                            status.style.color = 'red';
                         })
                     }
-                }).catch(error => {
+                }).catch(() => {
                     status.innerHTML = "Oops! There was a problem submitting your form";
                     status.style.color = 'red';
                 });
             });
 
-            // --- Write-ups Section Logic ---
             function showWriteupView(viewId) {
                 document.querySelectorAll('.writeup-view').forEach(view => view.classList.remove('active'));
                 document.getElementById(viewId).classList.add('active');
@@ -537,14 +520,31 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 `;
                 category.challenges.forEach(challenge => {
-                    html += `
-                        <div class="card bg-gray-800/50 rounded-lg border-2 border-yellow-500 shadow-lg cursor-pointer" data-competition="${competitionName}" data-category="${categoryName}" data-challenge="${challenge.name}">
-                            <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('${challenge.image}');"></div>
-                            <div class="card-content">
-                                <h3 class="card-title text-xl font-bold text-white">${challenge.name}</h3>
+                    if (challenge.url) {
+                        html += `
+                            <a class="card bg-gray-800/50 rounded-lg border-2 border-yellow-500 shadow-lg cursor-pointer"
+                               href="${challenge.url}" target="_blank" rel="noopener noreferrer"
+                               data-competition="${competitionName}" data-category="${categoryName}">
+                                <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('${challenge.image}');"></div>
+                                <div class="card-content">
+                                    <h3 class="card-title text-xl font-bold text-white flex items-center justify-between">
+                                        ${challenge.name}
+                                        <span class="text-sm text-green-300 ml-2">Open ↗</span>
+                                    </h3>
+                                </div>
+                            </a>
+                        `;
+                    } else {
+                        html += `
+                            <div class="card bg-gray-800/50 rounded-lg border-2 border-yellow-500 shadow-lg cursor-pointer"
+                                 data-competition="${competitionName}" data-category="${categoryName}" data-challenge="${challenge.name}">
+                                <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('${challenge.image}');"></div>
+                                <div class="card-content">
+                                    <h3 class="card-title text-xl font-bold text-white">${challenge.name}</h3>
+                                </div>
                             </div>
-                        </div>
-                    `;
+                        `;
+                    }
                 });
                 html += `</div><div class="mt-8 text-center"><button class="back-to-categories text-green-400 hover:underline" data-competition="${competitionName}">&larr; Back to ${competitionName} categories</button></div></div>`;
                 challengesContainer.innerHTML = html;
@@ -554,7 +554,16 @@
             function showSolution(competitionName, categoryName, challengeName) {
                 const challenge = writeupsData[competitionName].categories[categoryName].challenges.find(c => c.name === challengeName);
                 const solutionContainer = document.getElementById('writeups-solution');
-                 let html = `
+                let externalBtn = '';
+                if (challenge.url) {
+                    externalBtn = `
+                        <a href="${challenge.url}" target="_blank" rel="noopener noreferrer"
+                           class="inline-block mt-4 px-4 py-2 rounded-lg bg-green-600 hover:bg-green-700 text-white">
+                           Read on Medium ↗
+                        </a>
+                    `;
+                }
+                let html = `
                     <div class="w-full h-64 bg-cover bg-center flex items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/10.jpeg');"></div>
                         <div class="absolute inset-0 bg-black/50"></div>
@@ -567,15 +576,19 @@
                         <h2 class="text-3xl font-bold text-white mb-4">Solution</h2>
                         <div class="bg-gray-800/50 p-6 rounded-lg border border-gray-700">
                            <p class="text-lg whitespace-pre-wrap">${challenge.solution}</p>
+                           ${externalBtn}
                         </div>
-                        <div class="mt-8"><button class="back-to-challenges text-green-400 hover:underline" data-competition="${competitionName}" data-category="${categoryName}">&larr; Back to ${categoryName} Challenges</button></div>
+                        <div class="mt-8">
+                            <button class="back-to-challenges text-green-400 hover:underline" data-competition="${competitionName}" data-category="${categoryName}">
+                                &larr; Back to ${categoryName} Challenges
+                            </button>
+                        </div>
                     </div>
                 `;
                 solutionContainer.innerHTML = html;
                 showWriteupView('writeups-solution');
             }
 
-            // --- Event Delegation for Write-ups ---
             writeupContent.addEventListener('click', function(e) {
                 const target = e.target.closest('.card, button');
                 if (!target) return;
@@ -599,7 +612,6 @@
                 }
             });
 
-            // Show the initial page (home)
             showPage('home');
         });
     </script>
