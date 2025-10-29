@@ -273,11 +273,20 @@ Welcome to my website! My name is Firas Mahmoud, and here you'll find everything
                     <div class="container mx-auto px-6 py-16">
                         <h2 class="text-2xl font-bold text-white mb-8 text-center">Choose Competition</h2>
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <!-- 4hatsCTF -->
                             <div class="card bg-gray-800/50 rounded-lg border-2 border-green-400 shadow-lg cursor-pointer" data-competition="4hatsCTF AABU">
                                 <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('images/5.jpeg');"></div>
                                 <div class="card-content">
                                     <h3 class="card-title text-2xl font-bold text-white">4hatsCTF AABU ONLINE</h3>
                                     <p class="text-gray-400">OCT 2025</p>
+                                </div>
+                            </div>
+                            <!-- OrbitCTF (NEW) -->
+                            <div class="card bg-gray-800/50 rounded-lg border-2 border-blue-400 shadow-lg cursor-pointer" data-competition="OrbitCTF">
+                                <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('images/7.jpeg');"></div>
+                                <div class="card-content">
+                                    <h3 class="card-title text-2xl font-bold text-white">OrbitCTF</h3>
+                                    <p class="text-gray-400">2025</p>
                                 </div>
                             </div>
                         </div>
@@ -290,6 +299,7 @@ Welcome to my website! My name is Firas Mahmoud, and here you'll find everything
 
                 <div id="writeups-solution" class="writeup-view"></div>
             </div>
+            
         </section>
 
         <section id="contact" class="page-section pb-16">
@@ -354,7 +364,7 @@ Welcome to my website! My name is Firas Mahmoud, and here you'll find everything
             const writeupsData = {
                 "4hatsCTF AABU": {
                     banner: 'images/10.jpeg',
-                    description: 'Internal CTF at Al al-Bayt University. This section contains all challenges grouped by category.',
+                    description: 'Online CTF at Al al-Bayt University. This section contains all challenges grouped by category.',
                     categories: {
                         "PWN": {
                             image: 'images/1.jpeg',
@@ -395,6 +405,38 @@ Welcome to my website! My name is Firas Mahmoud, and here you'll find everything
                                 { name: 'Shafeeq\'s Coral Notes', solution: 'SOON...', image: 'images/11.jpeg', url: 'https://medium.com/@realfiras/4hatsctf-online-crypto-bf4b62ba001e' },
                                 { name: 'Beep64', solution: 'SOON...', image: 'images/2.jpeg', url: 'https://medium.com/@realfiras/4hatsctf-online-crypto-bf4b62ba001e' },
                                 { name: 'LOLTP', solution: 'SOON...', image: 'images/7.jpeg', url: 'https://medium.com/@realfiras/4hatsctf-online-crypto-bf4b62ba001e' }
+                            ]
+                        }
+                    }
+                },
+                "OrbitCTF": {
+                    banner: 'images/18.jpeg',
+                    description: 'Internal CTF at Al al-Bayt University. This section contains all challenges grouped by category.',
+                    categories: {
+                        "Crypto": {
+                            image: 'images/19.jpeg',
+                            challenges: [
+                                { name: 'Barcelona', solution: 'SOON...', image: 'images/13.jpeg', url: 'https://medium.com/@realfiras/orbitctf-cryptography-35e5fbf8aafc' },
+                                { name: 'زجزج', solution: 'SOON...', image: 'images/10.jpeg', url: 'https://medium.com/@realfiras/orbitctf-cryptography-35e5fbf8aafc' },
+                                { name: 'Dandans Dream', solution: 'SOON...', image: 'images/12.jpeg', url: 'https://medium.com/@realfiras/orbitctf-cryptography-35e5fbf8aafc' },
+                                { name: 'Meowngry', solution: 'SOON...', image: 'images/17.jpeg', url: 'https://medium.com/@realfiras/orbitctf-cryptography-35e5fbf8aafc' },
+                                { name: 'Ghazlooq', solution: 'SOON...', image: 'images/14.jpeg', url: 'https://medium.com/@realfiras/orbitctf-cryptography-35e5fbf8aafc' }
+                            ]
+                        },
+                        "MISC": {
+                            image: 'images/2.jpeg',
+                            challenges: [
+                                { name: 'diet mountain dew', solution: 'Solution for misc1...', image: 'images/13.jpeg', url: 'https://realfiras.medium.com/orbitctf-misc-d95e180a1119' },
+                                { name: 'NullLine', solution: 'Solution for misc3...', image: 'images/16.jpeg', url: 'https://realfiras.medium.com/orbitctf-misc-d95e180a1119' },
+                            ]
+                        },
+                        "OSINT": {
+                            image: 'images/3.jpeg',
+                            challenges: [
+                                    { name: 'The Gray Escape', solution: 'SOON...', image: 'images/14.jpeg', url: 'https://medium.com/@realfiras/orbitctf-osint-4dedaac0bd55' },
+                                    { name: 'Glowhouse', solution: 'SOON...', image: 'images/20.jpeg', url: 'https://medium.com/@realfiras/orbitctf-osint-4dedaac0bd55' },
+                                     { name: 'Anime', solution: 'SOON...', image: 'images/3.jpeg', url: 'https://medium.com/@realfiras/orbitctf-osint-4dedaac0bd55' },
+
                             ]
                         }
                     }
@@ -542,6 +584,17 @@ Welcome to my website! My name is Firas Mahmoud, and here you'll find everything
                         `;
                     }
                 });
+
+                if (category.challenges.length === 0) {
+                    html += `
+                        <div class="col-span-full">
+                            <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-6 text-center">
+                                <p class="text-gray-300">لا توجد تحديات مضافة حالياً في هذا القسم. أضف تحدياتك في writeupsData لعرضها هنا.</p>
+                            </div>
+                        </div>
+                    `;
+                }
+
                 html += `</div><div class="mt-8 text-center"><button class="back-to-categories text-green-400 hover:underline" data-competition="${competitionName}">&larr; Back to ${competitionName} categories</button></div></div>`;
                 challengesContainer.innerHTML = html;
                 showWriteupView('writeups-challenges');
