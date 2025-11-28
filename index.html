@@ -1,668 +1,733 @@
 <!-- All rights reserved ©Firas Mhmood on this website -->
+
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firas Mahmoud</title>
-    <link rel="icon" type="image/jpeg" href="images/image_2025-08-23_180127264-removebg-preview.png">
+    
+    <link rel="icon" type="image/png" href="media/logoo.png">
+    <link rel="shortcut icon" type="image/png" href="media/logoo.png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:ital,wght@1,400&display=swap" rel="stylesheet">
-    <style>
-  :root{
-   
-    --bg1: #0b1220;   
-    --glow1: #22d3ee; 
-    --glow2: #27d333; 
-    --dots: rgba(255,255,255,.04);
-  }
-
-  body { position: relative; background: var(--bg1); }
-
-  body::before{
-    content:"";
-    position: fixed;
-    inset:-20vmax;
-    z-index:-2;
-    filter: blur(60px);
-    background:
-      radial-gradient(40vmax 40vmax at 15% 20%, color-mix(in oklab, var(--glow1) 35%, transparent) 0%, transparent 60%),
-      radial-gradient(35vmax 35vmax at 85% 80%, color-mix(in oklab, var(--glow2) 28%, transparent) 0%, transparent 60%),
-      radial-gradient(30vmax 30vmax at 70% 15%, color-mix(in oklab, var(--glow1) 18%, transparent) 0%, transparent 65%);
-    animation: bgFloat 24s ease-in-out infinite alternate;
-    pointer-events:none;
-  }
-
-  body::after{
-    content:"";
-    position: fixed;
-    inset:0;
-    z-index:-1;
-    background-image:
-      radial-gradient(circle at 1px 1px, var(--dots) 1px, transparent 1px);
-    background-size: 22px 22px;
-    pointer-events:none;
-  }
-
-  @keyframes bgFloat{
-    0%   { transform: translate3d(0,0,0) scale(1); }
-    100% { transform: translate3d(0,-2%,0) scale(1.03); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    body::before{ animation: none; }
-  }
-
-  .light, [data-theme="light"] {
-    --bg1: #f7fafc;
-    --dots: rgba(0,0,0,.06);
-  }
-
-        body {
-            background-color: #101828;
-            color: #a0aec0;
-            font-family: 'Fira Code', monospace;
-            font-style: italic;
-            position: relative;
-            min-height: 100vh;
-        }
-        h1, h2, h3, h4, a, button { font-family: 'Inter', sans-serif; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #1a202c; }
-        ::-webkit-scrollbar-thumb { background: #4a5568; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #718096; }
-        .page-section, .writeup-view { display: none; }
-        .page-section.active, .writeup-view.active { display: block; animation: fadeIn 0.5s ease-in-out; }
-        @keyframes fadeIn { from {opacity:0; transform: translateY(10px);} to {opacity:1; transform: translateY(0);} }
-        .card { position: relative; overflow: hidden; transition: transform 0.3s ease-in-out; }
-        .card:hover { transform: scale(1.05); }
-        .card .card-bg-image { transition: transform 0.3s ease-in-out; }
-        .card:hover .card-bg-image { transform: scale(1.1); }
-        .card .card-content {
-            position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            transition: all 0.3s ease-in-out;
-        }
-        .card .description {
-            max-height: 0; opacity: 0; overflow: hidden;
-            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-            font-size: 0.9rem;
-        }
-        .card:hover .card-content { background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1)); }
-        .card:hover .description { max-height: 200px; opacity: 1; margin-top: 0.5rem; }
-        .card:hover .card-title { color: #48bb78; }
-    </style>
-</head>
-<body class="text-gray-300">
-
-    <!--Navigation -->
-    <header class="bg-gray-900/80 backdrop-blur-sm border-b border-gray-700">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#home" class="text-xl font-bold text-green-500 tracking-wider nav-link">Firas Mahmoud</a>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#home" class="hover:text-green-500 transition-colors nav-link">Home</a>
-                <a href="#competitions" class="hover:text-green-500 transition-colors nav-link">Competitions</a>
-                <a href="#organized" class="hover:text-green-500 transition-colors nav-link">Organized Competitions</a>
-                <a href="#writeups" class="hover:text-green-500 transition-colors nav-link">Write-ups</a>
-                <a href="#contact" class="hover:text-green-500 transition-colors nav-link">Contact</a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden text-2xl">☰</button>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 p-4">
-            <a href="#home" class="block py-2 text-center hover:bg-gray-700 hover:text-green-500 rounded nav-link">Home</a>
-            <a href="#competitions" class="block py-2 text-center hover:bg-gray-700 hover:text-green-500 rounded nav-link">Competitions</a>
-            <a href="#organized" class="block py-2 text-center hover:bg-gray-700 hover:text-green-500 rounded nav-link">Organized Competitions</a>
-            <a href="#writeups" class="block py-2 text-center hover:bg-gray-700 hover:text-green-500 rounded nav-link">Write-ups</a>
-            <a href="#contact" class="block py-2 text-center hover:bg-gray-700 hover:text-green-500 rounded nav-link">Contact</a>
-        </div>
-    </header>
     
-    <main>
-
-        <!-- Home Section -->
-        <section id="home" class="page-section active">
-            <div class="container mx-auto px-6">
-                <div class="text-center py-16">
-                    <img src="images/image_2025-08-23_180127264-removebg-preview.png" alt="Firas Mahmoud's Profile Picture" class="w-40 h-40 mx-auto rounded-full border-4 border-gray-600 shadow-lg">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6 text-gray-100">Firas Mahmoud</h1>
-
-                    <div class="flex justify-center mt-4">
-                        <div class="max-w-3xl flex items-center">
-                            <p class="text-lg md:text-xl text-gray-300 leading-relaxed border-l-4 border-green-500 pl-6 italic">
-Welcome to my website! My name is Firas Mahmoud, and here you'll find everything I've accomplished and contributed to the world of cybersecurity.                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center mt-12 pb-16">
-                    <h2 class="text-3xl font-bold text-white mb-8">The Resource Hub</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Card 1 -->
-                        <div class="card bg-gray-800/50 rounded-lg border-2 border-red-500 shadow-lg cursor-pointer hub-card" data-target="competitions">
-                            <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('images/1.jpeg');"></div>
-                            <div class="card-content">
-                                <h3 class="card-title text-2xl font-bold text-white transition-colors duration-300">Competitions</h3>
-                                <p class="description text-white">Explore my participation and achievements in various cybersecurity competitions.</p>
-                            </div>
-                        </div>
-                        <!-- Card 2 -->
-                        <div class="card bg-gray-800/50 rounded-lg border-2 border-green-500 shadow-lg cursor-pointer hub-card" data-target="organized">
-                            <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('images/2.jpeg');"></div>
-                            <div class="card-content">
-                                 <h3 class="card-title text-2xl font-bold text-white transition-colors duration-300">Organized Competitions</h3>
-                                 <p class="description text-white">Details on cybersecurity competitions I have organized and managed.</p>
-                            </div>
-                        </div>
-                        <!-- Card 3 -->
-                        <div class="card bg-gray-800/50 rounded-lg border-2 border-blue-500 shadow-lg cursor-pointer hub-card" data-target="writeups">
-                            <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('images/3.jpeg');"></div>
-                            <div class="card-content">
-                               <h3 class="card-title text-2xl font-bold text-white transition-colors duration-300">Write-ups</h3>
-                               <p class="description text-white">Browse challenges by competition first, then category.</p>
-                            </div>
-                        </div>
-                        <!-- card 4-->
-                        <div class="card bg-gray-800/50 rounded-lg border-2 border-blue-500 shadow-lg cursor-pointer hub-card md:col-span-2 lg:col-span-1" data-target="contact">
-                            <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('images/4.jpeg');"></div>
-                            <div class="card-content">
-                               <h3 class="card-title text-2xl font-bold text-white transition-colors duration-300">Contact</h3>
-                               <p class="description text-white">Get in touch with me for collaborations, inquiries, or just to say hello!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Competitions Section -->
-        <section id="competitions" class="page-section">
-            <div class="w-full h-64 bg-cover bg-center flex items-center justify-center relative overflow-hidden">
-                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/14.jpeg');"></div>
-                <div class="absolute inset-0 bg-black/50"></div>
-                <h1 class="text-5xl font-bold text-white text-shadow-lg relative z-10">Competitions</h1>
-            </div>
-            <div class="container mx-auto px-6 py-16">
-                <h2 class="text-2xl font-bold text-white mb-8 text-center">My CTF Participation & Achievements</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Competition Card 1 -->
-                    <div class="card bg-gray-800/50 rounded-lg border-2 border-blue-400 shadow-lg">
-                        <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('images/16.jpeg');"></div>
-                        <div class="card-content">
-                            <h3 class="card-title text-2xl font-bold text-white">RLCTF</h3>
-                            <p class="text-gray-400">Mar 2025</p>
-                            <div class="description">
-                                 <p class="text-gray-300 mt-2">A competition held by the University of Science and Technology.</p>
-                                <ul class="list-disc list-inside text-gray-300 mt-2">
-                                    <li>The only team that qualified from Al al-Bayt University.</li>
-                                    <li>Qualifying for the finals from among more than 300 participants.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Competition Card 2 -->
-                    <div class="card bg-gray-800/50 rounded-lg border-2 border-red-400 shadow-lg">
-                        <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('images/19.jpeg');"></div>
-                        <div class="card-content">
-                            <h3 class="card-title text-2xl font-bold text-white">Cyber Warriors CTF</h3>
-                            <p class="text-gray-400">Aug 2025</p>
-                            <div class="description">
-                                <p class="text-gray-300 mt-2">A competition organized by the National Cyber Security Center in Jordan.</p>
-                                <ul class="list-disc list-inside text-gray-300 mt-2">
-                                    <li>The only team that qualified from Al al-Bayt University.</li>
-                                    <li>Qualified for the finals with more than 1,200 participants.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Competition Card 3 -->
-                    <div class="card bg-gray-800/50 rounded-lg border-2 border-cyan-400 shadow-lg">
-                        <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('images/17.jpeg');"></div>
-                        <div class="card-content">
-                            <h3 class="card-title text-2xl font-bold text-white">METACTF</h3>
-                            <p class="text-gray-400">Oct 2025</p>
-                            <div class="description">
-                                <p class="text-gray-300 mt-2">A competition held by Princess Sumaya University.</p>
-                                <ul class="list-disc list-inside text-gray-300 mt-2">
-                                    <li>The only team that qualified from Al al-Bayt University.</li>
-                                    <li>Qualified for the finals with more than 400 participants.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Organized Competitions Section -->
-        <section id="organized" class="page-section">
-             <div class="w-full h-64 bg-cover bg-center flex items-center justify-center relative overflow-hidden">
-                 <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/16.jpeg');"></div>
-                 <div class="absolute inset-0 bg-black/50"></div>
-                <h1 class="text-5xl font-bold text-white text-shadow-lg relative z-10">Organized Competitions</h1>
-            </div>
-            <div class="container mx-auto px-6 py-16">
-                <h2 class="text-2xl font-bold text-white mb-8 text-center">Events I've Organized & Managed</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                     <!-- Organized Card 1 -->
-                    <div class="card bg-gray-800/50 rounded-lg border-2 border-yellow-400 shadow-lg">
-                        <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('images/13.jpeg');"></div>
-                        <div class="card-content">
-                            <h3 class="card-title text-2xl font-bold text-white">4hatsCTF AABU Online</h3>
-                            <p class="text-gray-400">OCT 2025</p>
-                            <div class="description">
-                                <p class="text-gray-300 mt-2">ONLINE Al al-Bayt University competition.</p>
-                                <ul class="list-disc list-inside text-gray-300 mt-2">
-                                    <li>With the participation of more than 55 students.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="writeups" class="page-section">
-            <div id="writeup-content">
-                <div id="writeups-competitions" class="writeup-view active">
-                     <div class="w-full h-64 bg-cover bg-center flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/6.jpeg');"></div>
-                        <div class="absolute inset-0 bg-black/50"></div>
-                        <h1 class="text-5xl font-bold text-white text-shadow-lg relative z-10">Write-ups</h1>
-                    </div>
-                    <div class="container mx-auto px-6 py-16">
-                        <h2 class="text-2xl font-bold text-white mb-8 text-center">Choose Competition</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <!-- 4hatsCTF -->
-                            <div class="card bg-gray-800/50 rounded-lg border-2 border-green-400 shadow-lg cursor-pointer" data-competition="4hatsCTF AABU">
-                                <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('images/5.jpeg');"></div>
-                                <div class="card-content">
-                                    <h3 class="card-title text-2xl font-bold text-white">4hatsCTF AABU ONLINE</h3>
-                                    <p class="text-gray-400">OCT 2025</p>
-                                </div>
-                            </div>
-                            <!-- OrbitCTF (NEW) -->
-                            <div class="card bg-gray-800/50 rounded-lg border-2 border-blue-400 shadow-lg cursor-pointer" data-competition="OrbitCTF">
-                                <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('images/7.jpeg');"></div>
-                                <div class="card-content">
-                                    <h3 class="card-title text-2xl font-bold text-white">OrbitCTF</h3>
-                                    <p class="text-gray-400">2025</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="writeups-categories" class="writeup-view"></div>
-
-                <div id="writeups-challenges" class="writeup-view"></div>
-
-                <div id="writeups-solution" class="writeup-view"></div>
-            </div>
-            
-        </section>
-
-        <section id="contact" class="page-section pb-16">
-            <div class="w-full h-64 bg-cover bg-center flex items-center justify-center relative overflow-hidden">
-                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/10.jpeg');"></div>
-                <div class="absolute inset-0 bg-black/50"></div>
-                <h1 class="text-5xl font-bold text-white text-shadow-lg relative z-10">Contact</h1>
-            </div>
-            <div class="container mx-auto px-6 max-w-2xl py-16">
-                <h2 class="text-2xl font-bold text-white mb-4 text-center">Get In Touch</h2>
-                <p class="text-center mb-8">Feel free to reach out for collaborations, questions, or just to connect!</p>
-                <form id="contact-form" class="bg-gray-800/50 p-8 rounded-lg border border-gray-700 shadow-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label for="name" class="block mb-2 text-sm font-medium text-gray-300">Name</label>
-                            <input type="text" id="name" name="name" class="bg-gray-700/50 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Your Name" required>
-                        </div>
-                        <div>
-                            <label for="email" class="block mb-2 text-sm font-medium text-gray-300">Email</label>
-                            <input type="email" id="email" name="email" class="bg-gray-700/50 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="your.email@example.com" required>
-                        </div>
-                    </div>
-                    <div class="mb-6">
-                        <label for="subject" class="block mb-2 text-sm font-medium text-gray-300">Subject</label>
-                        <input type="text" id="subject" name="subject" class="bg-gray-700/50 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="What's this about?" required>
-                    </div>
-                    <div class="mb-6">
-                        <label for="message" class="block mb-2 text-sm font-medium text-gray-300">Message</label>
-                        <textarea id="message" name="message" rows="4" class="bg-gray-700/50 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Your message here..." required></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-800 font-medium rounded-lg text-sm w-full sm:w-auto px-8 py-3 text-center transition-colors">Send Message</button>
-                    </div>
-                    <div id="form-status" class="mt-4 text-center"></div>
-                </form>
-            </div>
-        </section>
-        
-    </main>
-    
-    <footer class="border-t border-gray-700 mt-16 py-6">
-        <div class="container mx-auto text-center text-gray-500">
-            <div class="flex justify-center space-x-6 mb-4">
-                <a href="https://github.com/RealFiras" target="_blank" class="text-gray-400 hover:text-white transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.308.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg></a>
-                <a href="https://www.linkedin.com/in/firas-mahmoud-62670930b" target="_blank" class="text-gray-400 hover:text-white transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-                <a href="https://www.instagram.com/firas.j0" target="_blank" class="text-gray-400 hover:text-white transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.07 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg></a>
-            </div>
-            &copy; 2025 Firas Mahmoud. ALL rights reserved.
-        </div>
-    </footer>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const pageSections = document.querySelectorAll('.page-section');
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const writeupContent = document.getElementById('writeup-content');
-            const hubCards = document.querySelectorAll('.hub-card');
-            const contactForm = document.getElementById('contact-form');
+        function portfolio() {
+            return {
+                activeModal: null,
+                archiveTab: 'cyber', 
+                cyberFilter: 'all',  
+                
+                chatMessages: [
+                    { role: 'model', text: 'Greetings. I am Cyber-Sensei, the digital guardian of this archive. Ask me about Firas\'s skills in Cybersecurity or Visual Arts.' }
+                ],
+                userInput: '',
+                isChatLoading: false,
+                
+                decipherLoading: null, 
 
-            const writeupsData = {
-                "4hatsCTF AABU": {
-                    banner: 'images/10.jpeg',
-                    description: 'Online CTF at Al al-Bayt University. This section contains all challenges grouped by category.',
-                    categories: {
-                        "PWN": {
-                            image: 'images/1.jpeg',
-                            challenges: [
-                                { name: '4hats shop', solution: 'Solution for pwn1...', image: 'images/21.jpeg', url: 'https://medium.com/@username/pwn1' },
-                            ]
-                        },
-                        "MISC": {
-                            image: 'images/2.jpeg',
-                            challenges: [
-                                { name: 'Mute the Middle', solution: 'Solution for misc1...', image: 'images/13.jpeg', url: 'https://medium.com/@username/misc1' },
-                                { name: 'Hidden Arcade', solution: 'Solution for misc3...', image: 'images/16.jpeg', url: 'https://medium.com/@username/misc1' },
-                                { name: 'COINgine', solution: 'Solution for misc4...', image: 'images/14.jpeg', url: 'https://medium.com/@username/misc1' }
-                                
-                            ]
-                        },
-                        "OSINT": {
-                            image: 'images/3.jpeg',
-                            challenges: [
-                                { 
-                                    name: 'Whispers in the Wind',
-                                    solution: 'Solution for osint1...',
-                                    image: 'images/19.jpeg',
-                                    url: 'https://medium.com/@realfiras/whispers-in-the-wind-osint-c1db58eb6149'
-                                },
-                                { 
-                                    name: 'SpongeBob',
-                                    solution: 'Solution for osint2...',
-                                    image: 'images/18.jpeg',
-                                    url: 'https://medium.com/@realfiras/spongebob-osint-aa8bae965ea1'
-                                }
-                            ]
-                        },
-                        "Crypto": {
-                            image: 'images/4.jpeg',
-                            challenges: [
-                                { name: 'MESSI10', solution: 'SOON...', image: 'images/18.jpeg', url: 'https://medium.com/@realfiras/4hatsctf-online-crypto-bf4b62ba001e' },
-                                { name: 'Shafeeq\'s Coral Notes', solution: 'SOON...', image: 'images/11.jpeg', url: 'https://medium.com/@realfiras/4hatsctf-online-crypto-bf4b62ba001e' },
-                                { name: 'Beep64', solution: 'SOON...', image: 'images/2.jpeg', url: 'https://medium.com/@realfiras/4hatsctf-online-crypto-bf4b62ba001e' },
-                                { name: 'LOLTP', solution: 'SOON...', image: 'images/7.jpeg', url: 'https://medium.com/@realfiras/4hatsctf-online-crypto-bf4b62ba001e' }
-                            ]
-                        }
+                filtersList: ['all', 'pwn', 'crypto', 'osint', 'misc', 'web', 'rev'],
+
+                achievements: [
+                    { 
+                        id: 1, 
+                        title: 'NCSCBAHRAIN25', 
+                        rank: 'Finalist & DefCon Invitee', 
+                        date: '2025', 
+                        desc: 'The only team from Jordan to qualify for finals in Manama. Received an official invitation to the global DefCon conference.' 
+                    },
+                    { 
+                        id: 2, 
+                        title: 'METACTF', 
+                        rank: 'Finalist', 
+                        date: 'Oct 2025', 
+                        desc: 'Held by Princess Sumaya Univ. The only team from Al al-Bayt University qualified out of 400+ participants.' 
+                    },
+                    { 
+                        id: 3, 
+                        title: 'Cyber Warriors CTF', 
+                        rank: 'Finalist', 
+                        date: 'Aug 2025', 
+                        desc: 'Organized by NCSC Jordan. The only team from Al al-Bayt University qualified out of 1,200+ participants.' 
+                    },
+                    { 
+                        id: 4, 
+                        title: 'RLCTF', 
+                        rank: 'Finalist', 
+                        date: 'Mar 2025', 
+                        desc: 'Held by JUST University. The only team from Al al-Bayt University qualified out of 300+ participants.' 
+                    },
+                    { 
+                        id: 5, 
+                        title: 'CYBERETO CTF', 
+                        rank: 'Top 15', 
+                        date: '2025', 
+                        desc: 'Qualified for finals at Philadelphia University, standing out among more than 600 participants.' 
+                    }
+                ],
+
+                writeups: [
+                    // Crypto Challenges
+                    { id: 1, title: 'Barcelona', platform: 'CTF', category: 'Crypto', date: '2025', link: 'https://medium.com/@realfiras/orbitctf-cryptography-35e5fbf8aafc', summary: '' },
+                    { id: 2, title: 'ZigZag (زجزج)', platform: 'CTF', category: 'Crypto', date: '2025', link: 'https://medium.com/@realfiras/orbitctf-cryptography-35e5fbf8aafc', summary: '' },
+                    { id: 3, title: 'Dandans Dream', platform: 'CTF', category: 'Crypto', date: '2025', link: 'https://medium.com/@realfiras/orbitctf-cryptography-35e5fbf8aafc', summary: '' },
+                    { id: 4, title: 'Meowngry', platform: 'CTF', category: 'Crypto', date: '2025', link: 'https://medium.com/@realfiras/orbitctf-cryptography-35e5fbf8aafc', summary: '' },
+                    { id: 5, title: 'Ghazlooq', platform: 'CTF', category: 'Crypto', date: '2025', link: 'https://medium.com/@realfiras/orbitctf-cryptography-35e5fbf8aafc', summary: '' },
+                    { id: 6, title: 'MESSI10', platform: 'CTF', category: 'Crypto', date: '2025', link: 'https://medium.com/@realfiras/4hatsctf-online-crypto-bf4b62ba001e', summary: '' },
+                    { id: 7, title: "Shafeeq's Coral Notes", platform: 'CTF', category: 'Crypto', date: '2025', link: 'https://medium.com/@realfiras/4hatsctf-online-crypto-bf4b62ba001e', summary: '' },
+                    { id: 8, title: 'Beep64', platform: 'CTF', category: 'Crypto', date: '2025', link: 'https://medium.com/@realfiras/4hatsctf-online-crypto-bf4b62ba001e', summary: '' },
+                    { id: 9, title: 'LOLTP', platform: 'CTF', category: 'Crypto', date: '2025', link: 'https://medium.com/@realfiras/4hatsctf-online-crypto-bf4b62ba001e', summary: '' },
+
+                    // OSINT Challenges
+                    { id: 10, title: 'Whispers in the Wind', platform: 'CTF', category: 'OSINT', date: '2025', link: 'https://medium.com/@realfiras/whispers-in-the-wind-osint-c1db58eb6149', summary: '' },
+                    { id: 11, title: 'SpongeBob', platform: 'CTF', category: 'OSINT', date: '2025', link: 'https://medium.com/@realfiras/spongebob-osint-aa8bae965ea1', summary: '' },
+                    { id: 12, title: 'The Gray Escape', platform: 'CTF', category: 'OSINT', date: '2025', link: 'https://medium.com/@realfiras/orbitctf-osint-4dedaac0bd55', summary: '' },
+                    { id: 13, title: 'Glowhouse', platform: 'CTF', category: 'OSINT', date: '2025', link: 'https://medium.com/@realfiras/orbitctf-osint-4dedaac0bd55', summary: '' },
+                    { id: 14, title: 'Anime', platform: 'CTF', category: 'OSINT', date: '2025', link: 'https://medium.com/@realfiras/orbitctf-osint-4dedaac0bd55', summary: '' },
+
+                    // Misc Challenges
+                    { id: 15, title: 'diet mountain', platform: 'CTF', category: 'Misc', date: '2025', link: 'https://medium.com/@realfiras/orbitctf-misc-d95e180a1119', summary: '' },
+                ],
+
+              
+                projects: [
+                    { id: 1, title: 'Soon', type: 'It will be added soon.', date: '2025', link: '#' },
+                ],
+
+               
+                models: [
+                    { id: 1, title: 'Soon', type: 'It will be added soon.', date: '2025', link: '#' },
+                ],
+
+                get filteredWriteups() {
+                    if (this.cyberFilter === 'all') {
+                        return this.writeups;
+                    }
+                    return this.writeups.filter(post => post.category.toLowerCase() === this.cyberFilter);
+                },
+
+                openModal(modalName) {
+                    this.activeModal = modalName;
+                    if (modalName === 'archives') {
+                        this.archiveTab = 'cyber';
+                        this.cyberFilter = 'all';
                     }
                 },
-                "OrbitCTF": {
-                    banner: 'images/18.jpeg',
-                    description: 'Internal CTF at Al al-Bayt University. This section contains all challenges grouped by category.',
-                    categories: {
-                        "Crypto": {
-                            image: 'images/19.jpeg',
-                            challenges: [
-                                { name: 'Barcelona', solution: 'SOON...', image: 'images/13.jpeg', url: 'https://medium.com/@realfiras/orbitctf-cryptography-35e5fbf8aafc' },
-                                { name: 'زجزج', solution: 'SOON...', image: 'images/10.jpeg', url: 'https://medium.com/@realfiras/orbitctf-cryptography-35e5fbf8aafc' },
-                                { name: 'Dandans Dream', solution: 'SOON...', image: 'images/12.jpeg', url: 'https://medium.com/@realfiras/orbitctf-cryptography-35e5fbf8aafc' },
-                                { name: 'Meowngry', solution: 'SOON...', image: 'images/17.jpeg', url: 'https://medium.com/@realfiras/orbitctf-cryptography-35e5fbf8aafc' },
-                                { name: 'Ghazlooq', solution: 'SOON...', image: 'images/14.jpeg', url: 'https://medium.com/@realfiras/orbitctf-cryptography-35e5fbf8aafc' }
-                            ]
-                        },
-                        "MISC": {
-                            image: 'images/2.jpeg',
-                            challenges: [
-                                { name: 'diet mountain dew', solution: 'Solution for misc1...', image: 'images/13.jpeg', url: 'https://realfiras.medium.com/orbitctf-misc-d95e180a1119' },
-                                { name: 'NullLine', solution: 'Solution for misc3...', image: 'images/16.jpeg', url: 'https://realfiras.medium.com/orbitctf-misc-d95e180a1119' },
-                            ]
-                        },
-                        "OSINT": {
-                            image: 'images/3.jpeg',
-                            challenges: [
-                                    { name: 'The Gray Escape', solution: 'SOON...', image: 'images/14.jpeg', url: 'https://medium.com/@realfiras/orbitctf-osint-4dedaac0bd55' },
-                                    { name: 'Glowhouse', solution: 'SOON...', image: 'images/20.jpeg', url: 'https://medium.com/@realfiras/orbitctf-osint-4dedaac0bd55' },
-                                     { name: 'Anime', solution: 'SOON...', image: 'images/3.jpeg', url: 'https://medium.com/@realfiras/orbitctf-osint-4dedaac0bd55' },
+                closeModal() {
+                    this.activeModal = null;
+                },
+                setArchiveTab(tab) {
+                    this.archiveTab = tab;
+                },
+                setCyberFilter(filter) {
+                    this.cyberFilter = filter;
+                },
+                
+                async callGemini(prompt, systemInstruction = "") {
+                    const apiKey = ""; 
+                    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+                    
+                    const payload = {
+                        contents: [{ parts: [{ text: prompt }] }],
+                        systemInstruction: { parts: [{ text: systemInstruction }] }
+                    };
 
-                            ]
+                    try {
+                        const response = await fetch(url, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        
+                        if (!response.ok) throw new Error('Sensei is meditating (API Error)');
+                        
+                        const data = await response.json();
+                        return data.candidates?.[0]?.content?.parts?.[0]?.text || "The scroll is blank...";
+                    } catch (error) {
+                        console.error(error);
+                        return "Forgive me, my connection to the digital realm is severed.";
+                    }
+                },
+
+                async sendMessage() {
+                    if (!this.userInput.trim()) return;
+                    
+                    const userText = this.userInput;
+                    this.chatMessages.push({ role: 'user', text: userText });
+                    this.userInput = '';
+                    this.isChatLoading = true;
+
+                    this.$nextTick(() => {
+                        const chatContainer = document.getElementById('chat-container');
+                        if(chatContainer) chatContainer.scrollTop = chatContainer.scrollHeight;
+                    });
+
+                    const systemPrompt = "You are Cyber-Sensei, an AI avatar for Firas Mahmoud's portfolio. Firas is a Cybersecurity Specialist (CTF, Web, Rev, Pwn, Python) and a Video Editor (Premiere, After Effects). Speak in a wise, concise, slightly cryptic Japanese samurai/hacker tone. Keep answers short (max 2 sentences). If asked about Firas, praise his dual mastery of code and visual arts.";
+                    
+                    const reply = await this.callGemini(userText, systemPrompt);
+                    
+                    this.chatMessages.push({ role: 'model', text: reply });
+                    this.isChatLoading = false;
+                    
+                    this.$nextTick(() => {
+                        const chatContainer = document.getElementById('chat-container');
+                        if(chatContainer) chatContainer.scrollTop = chatContainer.scrollHeight;
+                    });
+                },
+
+                async decipherScroll(post) {
+                    if (this.decipherLoading) return;
+                    this.decipherLoading = post.id;
+                    
+                    const prompt = `Explain briefly (one short sentence) what a "${post.category}" challenge named "${post.title}" likely involves in a CTF competition. Be technical but cool.`;
+                    const systemPrompt = "You are a CTF expert. Give a 1-sentence technical guess about the challenge content based on its name and category.";
+                    
+                    const explanation = await this.callGemini(prompt, systemPrompt);
+                    
+                    const index = this.writeups.findIndex(p => p.id === post.id);
+                    if (index !== -1) {
+                        this.writeups[index].summary = explanation;
+                    }
+                    
+                    this.decipherLoading = null;
+                }
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Noto+Serif+JP:wght@200;400;700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        japan: {
+                            red: '#BC002D',      
+                            dark: '#0a0a0a',     
+                            paper: '#f4f4f4',    
+                            gold: '#C5A059',     
+                            charcoal: '#1a1a1a',  
+                            midnight: '#050505',
+                            purple: '#9D00FF'   
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif JP"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'paper-pattern': "url('https://www.transparenttextures.com/patterns/rice-paper.png')",
+                        'dark-pattern': "url('https://www.transparenttextures.com/patterns/carbon-fibre.png')",
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
                         }
                     }
                 }
-            };
-
-            function showPage(pageId) {
-                pageSections.forEach(section => section.classList.remove('active'));
-                const activePage = document.getElementById(pageId);
-                if (activePage) activePage.classList.add('active');
-                mobileMenu.classList.add('hidden');
-                if (pageId !== 'writeups') {
-                    showWriteupView('writeups-competitions');
-                }
-                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
+        }
+    </script>
 
-            navLinks.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const pageId = this.getAttribute('href').substring(1);
-                    showPage(pageId);
-                });
-            });
+    <style>
+        :root {
+            --thumb-color: #BC002D;
+        }
 
-            hubCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    const pageId = this.dataset.target;
-                    if (pageId) showPage(pageId);
-                });
-            });
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--thumb-color); 
+            transition: background 0.5s ease;
+        }
+        
+        .bg-grain {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
 
-            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        .typing-dot {
+            animation: typing 1.4s infinite ease-in-out both;
+        }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-japan-dark text-japan-paper font-sans overflow-hidden h-screen selection:bg-japan-red selection:text-white bg-grain" 
+      x-data="portfolio()"
+      :style="`--thumb-color: ${
+        (activeModal === 'archives' && archiveTab === 'video') ? '#C5A059' : 
+        (activeModal === 'archives' && archiveTab === '3d') ? '#9D00FF' : 
+        '#BC002D'
+      }`">
+
+    <canvas id="sakuraCanvas" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+    
+    <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vh] h-[50vh] rounded-full bg-japan-red opacity-20 blur-3xl -z-20 pointer-events-none"></div>
+
+    <main class="relative z-20 h-full w-full flex flex-col justify-center items-center p-4">
+        
+        <div class="text-center space-y-8" x-show="!activeModal" x-transition:enter="transition ease-out duration-700" x-transition:enter-start="opacity-0 translate-y-8" x-transition:enter-end="opacity-100 translate-y-0">
             
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const form = e.target;
-                const data = new FormData(form);
-                const action = "https://formspree.io/f/xanbrwgw"; 
-                const status = document.getElementById('form-status');
+            <div class="mb-6 animate-float flex justify-center">
+                <div class="w-24 h-24 border-2 border-japan-red/50 rounded-full flex items-center justify-center bg-black/30 backdrop-blur-sm relative">
+                    <i class="fa-solid fa-torii-gate text-4xl text-japan-red"></i>
+                    <div class="absolute inset-0 border border-japan-red/20 rounded-full scale-125"></div>
+                </div>
+            </div>
+
+            <div class="relative">
+                <h1 class="text-5xl md:text-7xl font-serif font-black tracking-widest text-white uppercase drop-shadow-lg z-10 relative">
+                    Firas <span class="text-japan-red">Mahmoud</span>
+                </h1>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-9xl font-serif text-japan-red/5 -z-10 whitespace-nowrap select-none">
+                    映像作家
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-4 text-sm md:text-base font-light tracking-[0.2em] text-gray-300">
+                <span class="border-b border-japan-red pb-1">CYBERSECURITY</span>
+                <span class="text-japan-red text-xs">●</span>
+                <span class="border-b border-japan-red pb-1">CTF PLAYER</span>
+                <span class="text-japan-red text-xs">●</span>
+                <span class="border-b border-japan-red pb-1">VIDEO EDITOR</span>
+                <span class="text-japan-red text-xs">●</span>
+                <span class="border-b border-japan-red pb-1">3D MODELING</span>
+            </div>
+            
+        </div>
+
+        <div class="fixed right-6 top-1/2 -translate-y-1/2 hidden md:block opacity-50">
+            <div style="writing-mode: vertical-rl; text-orientation: upright; letter-spacing: 0.5em;" 
+                 class="font-serif text-xl font-bold transition-colors duration-500"
+                 :class="{
+                    'text-japan-gold': activeModal === 'archives' && archiveTab === 'video',
+                    'text-japan-purple': activeModal === 'archives' && archiveTab === '3d',
+                    'text-japan-red': !(activeModal === 'archives' && (archiveTab === 'video' || archiveTab === '3d'))
+                 }">
+                フィラス・マフムード
+            </div>
+        </div>
+
+    </main>
+
+    <nav class="fixed bottom-10 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-2xl px-6">
+        <div class="flex justify-between items-center bg-japan-charcoal/90 backdrop-blur-md border-t-2 p-1 rounded-sm shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-colors duration-500"
+             :class="{
+                'border-japan-gold': activeModal === 'archives' && archiveTab === 'video',
+                'border-japan-purple': activeModal === 'archives' && archiveTab === '3d',
+                'border-japan-red': !(activeModal === 'archives' && (archiveTab === 'video' || archiveTab === '3d'))
+             }">
+            
+            <button @click="openModal('home')" class="flex-1 py-4 group relative hover:bg-white/5 transition-colors">
+                <span class="text-xs font-serif uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors">Home</span>
+                <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 transition-all duration-300 group-hover:w-1/2"
+                      :class="{
+                        'bg-japan-gold': activeModal === 'archives' && archiveTab === 'video',
+                        'bg-japan-purple': activeModal === 'archives' && archiveTab === '3d',
+                        'bg-japan-red': !(activeModal === 'archives' && (archiveTab === 'video' || archiveTab === '3d'))
+                      }"></span>
+            </button>
+
+            <div class="w-px h-6 bg-gray-700"></div>
+
+            <button @click="openModal('archives')" class="flex-1 py-4 group relative hover:bg-white/5 transition-colors">
+                <span class="text-xs font-serif uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors">Archives</span>
+                <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 transition-all duration-300 group-hover:w-1/2"
+                      :class="{
+                        'bg-japan-gold': activeModal === 'archives' && archiveTab === 'video',
+                        'bg-japan-purple': activeModal === 'archives' && archiveTab === '3d',
+                        'bg-japan-red': !(activeModal === 'archives' && (archiveTab === 'video' || archiveTab === '3d'))
+                      }"></span>
+            </button>
+
+            <div class="w-px h-6 bg-gray-700"></div>
+
+            <button @click="openModal('honor')" class="flex-1 py-4 group relative hover:bg-white/5 transition-colors">
+                <span class="text-xs font-serif uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors">Honor</span>
+                <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 transition-all duration-300 group-hover:w-1/2"
+                      :class="{
+                        'bg-japan-gold': activeModal === 'archives' && archiveTab === 'video',
+                        'bg-japan-purple': activeModal === 'archives' && archiveTab === '3d',
+                        'bg-japan-red': !(activeModal === 'archives' && (archiveTab === 'video' || archiveTab === '3d'))
+                      }"></span>
+            </button>
+
+            <div class="w-px h-6 bg-gray-700"></div>
+
+            <button @click="openModal('contact')" class="flex-1 py-4 group relative hover:bg-white/5 transition-colors">
+                <span class="text-xs font-serif uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors">Contact</span>
+                <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 transition-all duration-300 group-hover:w-1/2"
+                      :class="{
+                        'bg-japan-gold': activeModal === 'archives' && archiveTab === 'video',
+                        'bg-japan-purple': activeModal === 'archives' && archiveTab === '3d',
+                        'bg-japan-red': !(activeModal === 'archives' && (archiveTab === 'video' || archiveTab === '3d'))
+                      }"></span>
+            </button>
+
+        </div>
+    </nav>
+
+    <div 
+        x-show="activeModal" 
+        style="display: none;"
+        class="fixed inset-0 z-40 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
+        x-transition:enter="transition ease-out duration-500"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-300"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        @click.self="closeModal()"
+        @keydown.escape.window="closeModal()"
+    >
+        
+        <div 
+            class="relative w-full max-w-4xl max-h-[85vh] rounded-sm shadow-2xl overflow-hidden flex flex-col transition-colors duration-500 border"
+            :class="
+                (activeModal === 'archives' && archiveTab === 'video') ? 'bg-japan-midnight text-white border-japan-gold/20' : 
+                (activeModal === 'archives' && archiveTab === '3d') ? 'bg-black text-white border-japan-purple/20' :
+                'bg-japan-charcoal text-white border-japan-red/20'"
+            x-show="activeModal"
+            x-transition:enter="transition ease-out duration-500"
+            x-transition:enter-start="opacity-0 scale-95 translate-y-4"
+            x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+        >
+            
+            <div class="absolute top-0 right-0 p-4 opacity-10 pointer-events-none z-10">
+                <i class="fa-solid fa-stamp text-6xl transform rotate-12" 
+                   :class="
+                    (activeModal === 'archives' && archiveTab === 'video') ? 'text-japan-gold' : 
+                    (activeModal === 'archives' && archiveTab === '3d') ? 'text-japan-purple' :
+                    'text-japan-red'"></i>
+            </div>
+            
+            <div class="flex justify-between items-center p-6 border-b transition-colors duration-500 relative z-20"
+                 :class="
+                    (activeModal === 'archives' && archiveTab === 'video') ? 'bg-black/50 border-japan-gold/10' :
+                    (activeModal === 'archives' && archiveTab === '3d') ? 'bg-black/50 border-japan-purple/10' :
+                    'bg-black/30 border-japan-red/10'">
                 
-                fetch(action, {
-                    method: 'POST',
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
-                }).then(response => {
-                    if (response.ok) {
-                        status.innerHTML = "Thanks for your submission!";
-                        status.style.color = 'green';
-                        form.reset();
-                    } else {
-                        response.json().then(data => {
-                            if (Object.hasOwn(data, 'errors')) {
-                                status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                            } else {
-                                status.innerHTML = "Oops! There was a problem submitting your form";
-                            }
-                            status.style.color = 'red';
-                        })
-                    }
-                }).catch(() => {
-                    status.innerHTML = "Oops! There was a problem submitting your form";
-                    status.style.color = 'red';
-                });
-            });
+                <div class="flex items-center gap-3">
 
-            function showWriteupView(viewId) {
-                document.querySelectorAll('.writeup-view').forEach(view => view.classList.remove('active'));
-                document.getElementById(viewId).classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+                    <div x-show="activeModal !== 'home'" class="flex items-center gap-3">
+                        <span class="w-1.5 h-6 transition-colors duration-500" 
+                              :class="
+                                (activeModal === 'archives' && archiveTab === 'video') ? 'bg-japan-gold' : 
+                                (activeModal === 'archives' && archiveTab === '3d') ? 'bg-japan-purple' :
+                                'bg-japan-red'"></span>
+                        <h2 class="text-xl font-serif font-bold tracking-widest uppercase" x-text="activeModal"></h2>
+                    </div>
+                </div>
+                
+                <div x-show="activeModal === 'archives'" class="flex gap-2">
+                    <button @click="setArchiveTab('cyber')" 
+                            class="px-4 py-1 text-xs font-bold uppercase tracking-wider transition-all duration-300 border rounded-sm"
+                            :class="archiveTab === 'cyber' 
+                                ? 'bg-japan-red border-japan-red text-white' 
+                                : 'border-gray-700 text-gray-500 hover:text-japan-red hover:border-japan-red'">
+                        Cyber
+                    </button>
+                    <button @click="setArchiveTab('video')" 
+                            class="px-4 py-1 text-xs font-bold uppercase tracking-wider transition-all duration-300 border rounded-sm"
+                            :class="archiveTab === 'video' 
+                                ? 'bg-japan-gold border-japan-gold text-black' 
+                                : 'border-gray-700 text-gray-500 hover:text-japan-gold hover:border-japan-gold'">
+                        Video
+                    </button>
+                    <button @click="setArchiveTab('3d')" 
+                            class="px-4 py-1 text-xs font-bold uppercase tracking-wider transition-all duration-300 border rounded-sm"
+                            :class="archiveTab === '3d' 
+                                ? 'bg-japan-purple border-japan-purple text-white' 
+                                : 'border-gray-700 text-gray-500 hover:text-japan-purple hover:border-japan-purple'">
+                        3D
+                    </button>
+                </div>
 
-            function showCategories(competitionName) {
-                const competition = writeupsData[competitionName];
-                const categoriesContainer = document.getElementById('writeups-categories');
-                let html = `
-                    <div class="w-full h-64 bg-cover bg-center flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('${competition.banner}');"></div>
-                        <div class="absolute inset-0 bg-black/50"></div>
-                        <div class="text-center relative z-10">
-                            <h1 class="text-5xl font-bold text-white text-shadow-lg">${competitionName}</h1>
-                            <p class="text-green-400">Categories</p>
+                <button @click="closeModal()" class="text-gray-400 transition-colors text-2xl"
+                    :class="
+                        (activeModal === 'archives' && archiveTab === 'video') ? 'hover:text-japan-gold' : 
+                        (activeModal === 'archives' && archiveTab === '3d') ? 'hover:text-japan-purple' :
+                        'hover:text-japan-red'">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-8 overflow-y-auto custom-scrollbar flex-1 relative z-10"
+                 :class="activeModal === 'home' ? 'bg-black' : 'bg-dark-pattern'">
+                
+                <div x-show="activeModal === 'home'" class="relative h-full flex flex-col md:flex-row-reverse items-center justify-center gap-10 z-20">
+                    
+
+                    <div class="relative w-48 h-48 flex-shrink-0 mx-auto md:mx-0 z-10">
+                        <div class="absolute inset-0 border-2 border-japan-red/30 rounded-full scale-110"></div>
+                        <img src="media/logoo.png" alt="Avatar" class="w-full h-full rounded-full object-cover shadow-lg hover:grayscale-0 transition-all duration-700">
+                    </div>
+                    <div class="space-y-6 text-center md:text-left z-10">
+                        <div>
+                            <h3 class="text-4xl font-serif font-bold mb-2 drop-shadow-lg">
+                                <span class="text-white">Firas</span> <span class="text-japan-red">Mahmoud</span>
+                            </h3>
+                            <p class="text-japan-red font-medium tracking-wide drop-shadow-md">In sometimes "FLR"</p>
+                        </div>
+                        <div class="text-gray-300 leading-relaxed font-light space-y-4 drop-shadow-md max-w-lg">
+                            <p>
+                                My name is Firas Mahmoud, and here you'll find everything I've accomplished and contributed to the world of <span class="font-bold text-white border-b border-japan-red/50">cybersecurity</span>.
+                            </p>
+                            <p>
+                                Beyond the terminal, I am a passionate <span class="font-bold text-white border-b border-japan-red/50">Video Editor</span> and <span class="font-bold text-white border-b border-japan-red/50">3D Modeler</span>, crafting compelling visual narratives and digital dimensions.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex flex-wrap justify-center md:justify-start gap-2">
+                            <span class="px-4 py-1 text-xs border border-gray-600/50 bg-white/5 rounded-full text-gray-300 hover:border-japan-red hover:text-japan-red transition-colors">Video Editor</span>
+                            <span class="px-4 py-1 text-xs border border-gray-600/50 bg-white/5 rounded-full text-gray-300 hover:border-japan-red hover:text-japan-red transition-colors">3D Modeling</span>
+                            <span class="px-4 py-1 text-xs border border-gray-600/50 bg-white/5 rounded-full text-gray-300 hover:border-japan-red hover:text-japan-red transition-colors">CTF Player</span>
+                            <span class="px-4 py-1 text-xs border border-gray-600/50 bg-white/5 rounded-full text-gray-300 hover:border-japan-red hover:text-japan-red transition-colors">Cybersecurity</span>
                         </div>
                     </div>
-                    <div class="container mx-auto px-6 py-16">
-                        <p class="text-center mb-8">${competition.description}</p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                `;
-                for (const categoryName in competition.categories) {
-                    const category = competition.categories[categoryName];
-                    html += `
-                        <div class="card bg-gray-800/50 rounded-lg border-2 border-purple-500 shadow-lg cursor-pointer" data-competition="${competitionName}" data-category="${categoryName}">
-                            <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('${category.image}');"></div>
-                            <div class="card-content">
-                                <h3 class="card-title text-2xl font-bold text-white">${categoryName}</h3>
+                </div>
+
+                <div x-show="activeModal === 'archives'">
+                    
+                    <div x-show="archiveTab === 'cyber'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-x-10" x-transition:enter-end="opacity-100 translate-x-0">
+                        
+                        <div class="text-center mb-8">
+                            <span class="relative display-inline-block font-serif text-2xl font-bold text-gray-100">
+                                Cyber Knowledge Scrolls
+                            </span>
+                            <div class="h-0.5 w-20 bg-japan-red mx-auto mt-2 opacity-80 mb-6"></div>
+                            
+                            <div class="flex flex-wrap justify-center gap-2 max-w-2xl mx-auto">
+                                <template x-for="cat in filtersList" :key="cat">
+                                    <button @click="setCyberFilter(cat)" 
+                                            class="px-3 py-1 text-[10px] uppercase font-bold tracking-widest border transition-all duration-300 rounded-sm"
+                                            :class="cyberFilter === cat ? 'bg-japan-red border-japan-red text-white' : 'border-gray-700 text-gray-500 hover:text-japan-red hover:border-japan-red'"
+                                            x-text="cat">
+                                    </button>
+                                </template>
                             </div>
                         </div>
-                    `;
-                }
-                html += `</div><div class="mt-8 text-center"><button class="back-to-competitions text-green-400 hover:underline">&larr; Back to all competitions</button></div></div>`;
-                categoriesContainer.innerHTML = html;
-                showWriteupView('writeups-categories');
-            }
-
-            function showChallenges(competitionName, categoryName) {
-                const competition = writeupsData[competitionName];
-                const category = competition.categories[categoryName];
-                const challengesContainer = document.getElementById('writeups-challenges');
-                let html = `
-                    <div class="w-full h-64 bg-cover bg-center flex items-center justify-center relative overflow-hidden">
-                         <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('${competition.banner}');"></div>
-                         <div class="absolute inset-0 bg-black/50"></div>
-                         <div class="text-center relative z-10">
-                            <h1 class="text-5xl font-bold text-white text-shadow-lg">${competitionName}</h1>
-                            <p class="text-green-400">${categoryName} Challenges</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <template x-for="post in filteredWriteups" :key="post.id">
+                                <a :href="post.link" target="_blank" class="block bg-white/5 border border-gray-700 p-6 hover:shadow-[0_0_15px_rgba(188,0,45,0.2)] hover:border-japan-red/50 transition-all duration-300 group rounded-sm flex flex-col relative overflow-hidden cursor-pointer">
+                                    <div class="flex justify-between items-start mb-4 relative z-10">
+                                        <span class="font-serif text-4xl text-white/5 group-hover:text-japan-red/20 transition-colors absolute right-[-10px] top-[-10px] font-black z-0 pointer-events-none select-none" 
+                                              x-text="post.id < 10 ? '0' + post.id : post.id"></span>
+                                        <span class="text-xs font-bold text-japan-red tracking-widest uppercase z-10 bg-black/50 px-2 py-1 rounded-sm border border-japan-red/30" x-text="post.category"></span>
+                                    </div>
+                                    <h4 class="text-lg font-bold mb-2 font-serif z-10 relative text-gray-200 group-hover:text-japan-red transition-colors" x-text="post.title"></h4>
+                                    <div class="w-8 h-0.5 bg-gray-600 mb-4 group-hover:w-16 group-hover:bg-japan-red transition-all"></div>
+                                    <p class="text-xs text-gray-500 font-mono mb-4" x-text="post.platform + ' • ' + post.date"></p>
+                                    
+                                    <div class="text-right mt-auto relative z-10">
+                                        <span class="text-sm text-gray-400 group-hover:text-white transition-colors font-medium flex items-center justify-end gap-1">
+                                            Read Scroll <i class="fa-solid fa-chevron-right text-xs"></i>
+                                        </span>
+                                    </div>
+                                </a>
+                            </template>
+                        </div>
+                        
+                        <div x-show="filteredWriteups.length === 0" class="text-center py-10 text-gray-600 font-serif">
+                            No scrolls found in this archive section.
                         </div>
                     </div>
-                    <div class="container mx-auto px-6 py-16">
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                `;
-                category.challenges.forEach(challenge => {
-                    if (challenge.url) {
-                        html += `
-                            <a class="card bg-gray-800/50 rounded-lg border-2 border-yellow-500 shadow-lg cursor-pointer"
-                               href="${challenge.url}" target="_blank" rel="noopener noreferrer"
-                               data-competition="${competitionName}" data-category="${categoryName}">
-                                <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('${challenge.image}');"></div>
-                                <div class="card-content">
-                                    <h3 class="card-title text-xl font-bold text-white flex items-center justify-between">
-                                        ${challenge.name}
-                                        <span class="text-sm text-green-300 ml-2">Open ↗</span>
-                                    </h3>
-                                </div>
-                            </a>
-                        `;
-                    } else {
-                        html += `
-                            <div class="card bg-gray-800/50 rounded-lg border-2 border-yellow-500 shadow-lg cursor-pointer"
-                                 data-competition="${competitionName}" data-category="${categoryName}" data-challenge="${challenge.name}">
-                                <div class="h-96 bg-cover bg-center card-bg-image" style="background-image: url('${challenge.image}');"></div>
-                                <div class="card-content">
-                                    <h3 class="card-title text-xl font-bold text-white">${challenge.name}</h3>
-                                </div>
-                            </div>
-                        `;
-                    }
-                });
 
-                if (category.challenges.length === 0) {
-                    html += `
-                        <div class="col-span-full">
-                            <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-6 text-center">
-                                <p class="text-gray-300">لا توجد تحديات مضافة حالياً في هذا القسم. أضف تحدياتك في writeupsData لعرضها هنا.</p>
-                            </div>
+                    <div x-show="archiveTab === 'video'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 -translate-x-10" x-transition:enter-end="opacity-100 translate-x-0">
+                        <div class="text-center mb-10">
+                            <span class="text-2xl font-serif font-bold text-white drop-shadow-[0_0_10px_rgba(197,160,89,0.5)]">
+                                Visual Masterpieces
+                            </span>
+                            <div class="h-0.5 w-16 bg-japan-gold mx-auto mt-3"></div>
                         </div>
-                    `;
-                }
 
-                html += `</div><div class="mt-8 text-center"><button class="back-to-categories text-green-400 hover:underline" data-competition="${competitionName}">&larr; Back to ${competitionName} categories</button></div></div>`;
-                challengesContainer.innerHTML = html;
-                showWriteupView('writeups-challenges');
-            }
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <template x-for="project in projects" :key="project.id">
+                                <a :href="project.link" target="_blank" class="block bg-black group relative overflow-hidden rounded-sm aspect-video border border-gray-800 hover:border-japan-gold/70 transition-all shadow-[0_0_20px_rgba(0,0,0,0.5)] cursor-pointer">
+                                    <div class="absolute inset-0 bg-gray-900/40 group-hover:bg-transparent transition-all duration-500"></div>
+                                    
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="w-12 h-12 rounded-full border border-japan-gold flex items-center justify-center group-hover:scale-110 group-hover:bg-japan-gold group-hover:text-black transition-all bg-black/50 backdrop-blur-sm text-japan-gold">
+                                            <i class="fa-solid fa-play ml-1"></i>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black via-black/80 to-transparent transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                                        <h4 class="text-white font-serif font-bold tracking-wide" x-text="project.title"></h4>
+                                        <div class="flex items-center gap-2 mt-1">
+                                            <span class="w-2 h-0.5 bg-japan-gold"></span>
+                                            <p class="text-gray-300 text-xs uppercase tracking-wider" x-text="project.type"></p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </template>
+                        </div>
+                    </div>
 
-            function showSolution(competitionName, categoryName, challengeName) {
-                const challenge = writeupsData[competitionName].categories[categoryName].challenges.find(c => c.name === challengeName);
-                const solutionContainer = document.getElementById('writeups-solution');
-                let externalBtn = '';
-                if (challenge.url) {
-                    externalBtn = `
-                        <a href="${challenge.url}" target="_blank" rel="noopener noreferrer"
-                           class="inline-block mt-4 px-4 py-2 rounded-lg bg-green-600 hover:bg-green-700 text-white">
-                           Read on Medium ↗
+                    <div x-show="archiveTab === '3d'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-10" x-transition:enter-end="opacity-100 translate-y-0">
+                        <div class="text-center mb-10">
+                            <span class="text-2xl font-serif font-bold text-white drop-shadow-[0_0_10px_rgba(157,0,255,0.5)]">
+                                Digital Dimensions
+                            </span>
+                            <div class="h-0.5 w-16 bg-japan-purple mx-auto mt-3"></div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <template x-for="model in models" :key="model.id">
+                                <a :href="model.link" target="_blank" class="block bg-black/80 group relative overflow-hidden rounded-sm aspect-square border border-gray-800 hover:border-japan-purple/80 transition-all shadow-[0_0_25px_rgba(157,0,255,0.15)] cursor-pointer">
+                                    
+                                    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle, #9D00FF 1px, transparent 1px); background-size: 20px 20px;"></div>
+                                    
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <i class="fa-solid fa-cube text-6xl text-gray-800 group-hover:text-japan-purple group-hover:scale-110 transition-all duration-500"></i>
+                                    </div>
+                                    
+                                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-japan-purple/20 to-transparent border-t border-japan-purple/10">
+                                        <h4 class="text-white font-serif font-bold text-xl tracking-wide group-hover:text-japan-purple transition-colors" x-text="model.title"></h4>
+                                        <div class="flex justify-between items-end mt-2">
+                                            <div>
+                                                <p class="text-gray-400 text-xs uppercase tracking-widest mb-1">Type</p>
+                                                <p class="text-white text-sm" x-text="model.type"></p>
+                                            </div>
+                                            <span class="text-xs font-mono text-gray-500" x-text="model.date"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </template>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div x-show="activeModal === 'honor'" class="space-y-8">
+                    <div class="text-center mb-8">
+                        <span class="ink-brush text-2xl font-serif font-bold text-gray-100">Battle Records</span>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <template x-for="item in achievements" :key="item.id">
+                            <div class="flex items-start gap-4 border-l-2 border-gray-700 pl-6 relative pb-6">
+                                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-japan-red border-4 border-gray-800"></div>
+                                <div>
+                                    <div class="flex flex-col md:flex-row md:items-center gap-2 mb-2">
+                                        <h4 class="text-lg font-bold font-serif text-white" x-text="item.title"></h4>
+                                        <span class="px-2 py-0.5 bg-japan-red text-white text-[10px] tracking-wider uppercase rounded-sm" x-text="item.rank"></span>
+                                    </div>
+                                    <p class="text-sm text-gray-500 mb-2 font-mono" x-text="item.date"></p>
+                                    <p class="text-gray-300 font-light" x-text="item.desc"></p>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <div x-show="activeModal === 'contact'" class="h-full flex flex-col justify-center items-center py-10">
+                    <h3 class="text-3xl font-serif font-bold mb-6 text-white">Connect With Me</h3>
+                    <p class="text-gray-500 mb-12 font-light tracking-wide text-sm">Follow my digital footprint</p>
+                    
+                    <div class="flex flex-col gap-6 w-full max-w-xs">
+                        <!-- GitHub -->
+                        <a href="https://github.com/RealFiras" target="_blank" class="flex items-center gap-4 p-4 bg-white/5 border border-gray-700 hover:border-japan-red hover:bg-white/10 transition-all duration-300 group rounded-sm">
+                            <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center border border-gray-600 group-hover:border-japan-red text-white group-hover:text-japan-red transition-colors">
+                                <i class="fa-brands fa-github text-xl"></i>
+                            </div>
+                            <span class="font-serif text-gray-300 group-hover:text-white tracking-wider">GitHub</span>
+                            <i class="fa-solid fa-arrow-right ml-auto text-gray-600 group-hover:text-japan-red transition-colors text-xs"></i>
                         </a>
-                    `;
+
+                        <!-- LinkedIn -->
+                        <a href="http://linkedin.com/in/realfiras" target="_blank" class="flex items-center gap-4 p-4 bg-white/5 border border-gray-700 hover:border-japan-gold hover:bg-white/10 transition-all duration-300 group rounded-sm">
+                            <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center border border-gray-600 group-hover:border-japan-gold text-white group-hover:text-japan-gold transition-colors">
+                                <i class="fa-brands fa-linkedin-in text-xl"></i>
+                            </div>
+                            <span class="font-serif text-gray-300 group-hover:text-white tracking-wider">LinkedIn</span>
+                            <i class="fa-solid fa-arrow-right ml-auto text-gray-600 group-hover:text-japan-gold transition-colors text-xs"></i>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/firas.j0/" target="_blank" class="flex items-center gap-4 p-4 bg-white/5 border border-gray-700 hover:border-pink-500 hover:bg-white/10 transition-all duration-300 group rounded-sm">
+                            <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center border border-gray-600 group-hover:border-pink-500 text-white group-hover:text-pink-500 transition-colors">
+                                <i class="fa-brands fa-instagram text-xl"></i>
+                            </div>
+                            <span class="font-serif text-gray-300 group-hover:text-white tracking-wider">Instagram</span>
+                            <i class="fa-solid fa-arrow-right ml-auto text-gray-600 group-hover:text-pink-500 transition-colors text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('sakuraCanvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+            const petals = [];
+            const petalCount = 80;
+
+            class Petal {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height - height;
+                    this.size = Math.random() * 5 + 3;
+                    this.speedY = Math.random() * 1 + 0.5;
+                    this.speedX = Math.random() * 1 - 0.5;
+                    this.opacity = Math.random() * 0.5 + 0.3;
+                    this.color = `rgba(255, 192, 203, ${this.opacity})`;
+                    this.angle = Math.random() * 360;
+                    this.spin = Math.random() < 0.5 ? 1 : -1;
                 }
-                let html = `
-                    <div class="w-full h-64 bg-cover bg-center flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/10.jpeg');"></div>
-                        <div class="absolute inset-0 bg-black/50"></div>
-                        <div class="text-center relative z-10">
-                            <h1 class="text-5xl font-bold text-white text-shadow-lg">${challenge.name}</h1>
-                            <p class="text-green-400">Competition: ${competitionName} - Category: ${categoryName}</p>
-                        </div>
-                    </div>
-                    <div class="container mx-auto px-6 max-w-4xl py-16">
-                        <h2 class="text-3xl font-bold text-white mb-4">Solution</h2>
-                        <div class="bg-gray-800/50 p-6 rounded-lg border border-gray-700">
-                           <p class="text-lg whitespace-pre-wrap">${challenge.solution}</p>
-                           ${externalBtn}
-                        </div>
-                        <div class="mt-8">
-                            <button class="back-to-challenges text-green-400 hover:underline" data-competition="${competitionName}" data-category="${categoryName}">
-                                &larr; Back to ${categoryName} Challenges
-                            </button>
-                        </div>
-                    </div>
-                `;
-                solutionContainer.innerHTML = html;
-                showWriteupView('writeups-solution');
+                update() {
+                    this.y += this.speedY;
+                    this.x += Math.sin(this.y * 0.005) + this.speedX;
+                    this.angle += this.spin;
+                    if (this.y > height) { this.y = -20; this.x = Math.random() * width; }
+                }
+                draw() {
+                    ctx.save();
+                    ctx.translate(this.x, this.y);
+                    ctx.rotate(this.angle * Math.PI / 180);
+                    ctx.fillStyle = this.color;
+                    ctx.beginPath();
+                    ctx.ellipse(0, 0, this.size, this.size / 2, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                }
             }
 
-            writeupContent.addEventListener('click', function(e) {
-                const target = e.target.closest('.card, button');
-                if (!target) return;
+            for (let i = 0; i < petalCount; i++) petals.push(new Petal());
 
-                const competition = target.dataset.competition;
-                const category = target.dataset.category;
-                const challenge = target.dataset.challenge;
-
-                if (target.classList.contains('back-to-competitions')) {
-                    showWriteupView('writeups-competitions');
-                } else if (target.classList.contains('back-to-categories')) {
-                    showCategories(competition);
-                } else if (target.classList.contains('back-to-challenges')) {
-                    showChallenges(competition, category);
-                } else if (challenge) {
-                    showSolution(competition, category, challenge);
-                } else if (category) {
-                    showChallenges(competition, category);
-                } else if (competition) {
-                    showCategories(competition);
-                }
-            });
-
-            showPage('home');
-        });
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                petals.forEach(p => { p.update(); p.draw(); });
+                requestAnimationFrame(animate);
+            }
+            animate();
+            window.addEventListener('resize', () => { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; });
+        }
     </script>
 </body>
 </html>
