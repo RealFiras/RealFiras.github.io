@@ -4,7 +4,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Firas Mahmoud</title>
     
     <link rel="icon" type="image/png" href="media/logoo.png">
@@ -61,7 +61,7 @@
                     { 
                         id: 5, 
                         title: 'CYBERETO CTF', 
-                        rank: 'Top 15', 
+                        rank: 'Finalist', 
                         date: '2025', 
                         desc: 'Qualified for finals at Philadelphia University, standing out among more than 600 participants.' 
                     }
@@ -77,7 +77,7 @@
                     { id: 6, title: 'MESSI10', platform: 'CTF', category: 'Crypto', date: '2025', link: 'https://medium.com/@realfiras/4hatsctf-online-crypto-bf4b62ba001e', summary: '' },
                     { id: 7, title: "Shafeeq's Coral Notes", platform: 'CTF', category: 'Crypto', date: '2025', link: 'https://medium.com/@realfiras/4hatsctf-online-crypto-bf4b62ba001e', summary: '' },
                     { id: 8, title: 'Beep64', platform: 'CTF', category: 'Crypto', date: '2025', link: 'https://medium.com/@realfiras/4hatsctf-online-crypto-bf4b62ba001e', summary: '' },
-                    { id: 9, title: 'LOLTP', platform: 'CTF', category: 'Crypto', date: '2025', link: 'https://medium.com/@realfiras/4hatsctf-online-crypto-bf4b62ba001e', summary: '' },
+                    { id: 9, title: 'LOLTP', platform: 'CTF', category: 'Crypto', date: '2025', link: '#https://medium.com/@realfiras/4hatsctf-online-crypto-bf4b62ba001e', summary: '' },
 
                     // OSINT Challenges
                     { id: 10, title: 'Whispers in the Wind', platform: 'CTF', category: 'OSINT', date: '2025', link: 'https://medium.com/@realfiras/whispers-in-the-wind-osint-c1db58eb6149', summary: '' },
@@ -95,7 +95,7 @@
                     { id: 1, title: 'Soon', type: 'It will be added soon.', date: '2025', link: '#' },
                 ],
 
-               
+                
                 models: [
                     { id: 1, title: 'Soon', type: 'It will be added soon.', date: '2025', link: '#' },
                 ],
@@ -246,6 +246,12 @@
             --thumb-color: #BC002D;
         }
 
+        @media (max-width: 640px) {
+            ::-webkit-scrollbar {
+                width: 4px;
+            }
+        }
+
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -282,35 +288,35 @@
 
     <canvas id="sakuraCanvas" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
     
-    <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vh] h-[50vh] rounded-full bg-japan-red opacity-20 blur-3xl -z-20 pointer-events-none"></div>
+    <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30vh] h-[30vh] md:w-[50vh] md:h-[50vh] rounded-full bg-japan-red opacity-20 blur-3xl -z-20 pointer-events-none"></div>
 
     <main class="relative z-20 h-full w-full flex flex-col justify-center items-center p-4">
         
-        <div class="text-center space-y-8" x-show="!activeModal" x-transition:enter="transition ease-out duration-700" x-transition:enter-start="opacity-0 translate-y-8" x-transition:enter-end="opacity-100 translate-y-0">
+        <div class="text-center space-y-6 md:space-y-8" x-show="!activeModal" x-transition:enter="transition ease-out duration-700" x-transition:enter-start="opacity-0 translate-y-8" x-transition:enter-end="opacity-100 translate-y-0">
             
-            <div class="mb-6 animate-float flex justify-center">
-                <div class="w-24 h-24 border-2 border-japan-red/50 rounded-full flex items-center justify-center bg-black/30 backdrop-blur-sm relative">
-                    <i class="fa-solid fa-torii-gate text-4xl text-japan-red"></i>
+            <div class="mb-4 md:mb-6 animate-float flex justify-center">
+                <div class="w-20 h-20 md:w-24 md:h-24 border-2 border-japan-red/50 rounded-full flex items-center justify-center bg-black/30 backdrop-blur-sm relative">
+                    <i class="fa-solid fa-torii-gate text-3xl md:text-4xl text-japan-red"></i>
                     <div class="absolute inset-0 border border-japan-red/20 rounded-full scale-125"></div>
                 </div>
             </div>
 
             <div class="relative">
-                <h1 class="text-5xl md:text-7xl font-serif font-black tracking-widest text-white uppercase drop-shadow-lg z-10 relative">
+                <h1 class="text-4xl md:text-7xl font-serif font-black tracking-widest text-white uppercase drop-shadow-lg z-10 relative">
                     Firas <span class="text-japan-red">Mahmoud</span>
                 </h1>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-9xl font-serif text-japan-red/5 -z-10 whitespace-nowrap select-none">
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl md:text-9xl font-serif text-japan-red/5 -z-10 whitespace-nowrap select-none">
                     映像作家
                 </div>
             </div>
 
-            <div class="flex flex-wrap items-center justify-center gap-4 text-sm md:text-base font-light tracking-[0.2em] text-gray-300">
+            <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs md:text-base font-light tracking-[0.2em] text-gray-300 px-4">
                 <span class="border-b border-japan-red pb-1">CYBERSECURITY</span>
-                <span class="text-japan-red text-xs">●</span>
+                <span class="text-japan-red text-[10px] md:text-xs">●</span>
                 <span class="border-b border-japan-red pb-1">CTF PLAYER</span>
-                <span class="text-japan-red text-xs">●</span>
+                <span class="text-japan-red text-[10px] md:text-xs">●</span>
                 <span class="border-b border-japan-red pb-1">VIDEO EDITOR</span>
-                <span class="text-japan-red text-xs">●</span>
+                <span class="text-japan-red text-[10px] md:text-xs">●</span>
                 <span class="border-b border-japan-red pb-1">3D MODELING</span>
             </div>
             
@@ -330,7 +336,7 @@
 
     </main>
 
-    <nav class="fixed bottom-10 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-2xl px-6">
+    <nav class="fixed bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 z-50 w-[95%] md:w-full max-w-2xl px-2 md:px-6">
         <div class="flex justify-between items-center bg-japan-charcoal/90 backdrop-blur-md border-t-2 p-1 rounded-sm shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-colors duration-500"
              :class="{
                 'border-japan-gold': activeModal === 'archives' && archiveTab === 'video',
@@ -338,8 +344,8 @@
                 'border-japan-red': !(activeModal === 'archives' && (archiveTab === 'video' || archiveTab === '3d'))
              }">
             
-            <button @click="openModal('home')" class="flex-1 py-4 group relative hover:bg-white/5 transition-colors">
-                <span class="text-xs font-serif uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors">Home</span>
+            <button @click="openModal('home')" class="flex-1 py-3 md:py-4 group relative hover:bg-white/5 transition-colors">
+                <span class="text-[10px] md:text-xs font-serif uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors">Home</span>
                 <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 transition-all duration-300 group-hover:w-1/2"
                       :class="{
                         'bg-japan-gold': activeModal === 'archives' && archiveTab === 'video',
@@ -348,10 +354,10 @@
                       }"></span>
             </button>
 
-            <div class="w-px h-6 bg-gray-700"></div>
+            <div class="w-px h-4 md:h-6 bg-gray-700"></div>
 
-            <button @click="openModal('archives')" class="flex-1 py-4 group relative hover:bg-white/5 transition-colors">
-                <span class="text-xs font-serif uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors">Archives</span>
+            <button @click="openModal('archives')" class="flex-1 py-3 md:py-4 group relative hover:bg-white/5 transition-colors">
+                <span class="text-[10px] md:text-xs font-serif uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors">Archives</span>
                 <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 transition-all duration-300 group-hover:w-1/2"
                       :class="{
                         'bg-japan-gold': activeModal === 'archives' && archiveTab === 'video',
@@ -360,10 +366,10 @@
                       }"></span>
             </button>
 
-            <div class="w-px h-6 bg-gray-700"></div>
+            <div class="w-px h-4 md:h-6 bg-gray-700"></div>
 
-            <button @click="openModal('honor')" class="flex-1 py-4 group relative hover:bg-white/5 transition-colors">
-                <span class="text-xs font-serif uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors">Honor</span>
+            <button @click="openModal('honor')" class="flex-1 py-3 md:py-4 group relative hover:bg-white/5 transition-colors">
+                <span class="text-[10px] md:text-xs font-serif uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors">Honor</span>
                 <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 transition-all duration-300 group-hover:w-1/2"
                       :class="{
                         'bg-japan-gold': activeModal === 'archives' && archiveTab === 'video',
@@ -372,10 +378,10 @@
                       }"></span>
             </button>
 
-            <div class="w-px h-6 bg-gray-700"></div>
+            <div class="w-px h-4 md:h-6 bg-gray-700"></div>
 
-            <button @click="openModal('contact')" class="flex-1 py-4 group relative hover:bg-white/5 transition-colors">
-                <span class="text-xs font-serif uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors">Contact</span>
+            <button @click="openModal('contact')" class="flex-1 py-3 md:py-4 group relative hover:bg-white/5 transition-colors">
+                <span class="text-[10px] md:text-xs font-serif uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors">Contact</span>
                 <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 transition-all duration-300 group-hover:w-1/2"
                       :class="{
                         'bg-japan-gold': activeModal === 'archives' && archiveTab === 'video',
@@ -390,7 +396,7 @@
     <div 
         x-show="activeModal" 
         style="display: none;"
-        class="fixed inset-0 z-40 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
+        class="fixed inset-0 z-40 flex items-center justify-center p-2 md:p-4 bg-black/90 backdrop-blur-sm"
         x-transition:enter="transition ease-out duration-500"
         x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100"
@@ -402,7 +408,7 @@
     >
         
         <div 
-            class="relative w-full max-w-4xl max-h-[85vh] rounded-sm shadow-2xl overflow-hidden flex flex-col transition-colors duration-500 border"
+            class="relative w-full md:max-w-4xl max-h-[85vh] md:max-h-[85vh] rounded-sm shadow-2xl overflow-hidden flex flex-col transition-colors duration-500 border"
             :class="
                 (activeModal === 'archives' && archiveTab === 'video') ? 'bg-japan-midnight text-white border-japan-gold/20' : 
                 (activeModal === 'archives' && archiveTab === '3d') ? 'bg-black text-white border-japan-purple/20' :
@@ -414,48 +420,47 @@
         >
             
             <div class="absolute top-0 right-0 p-4 opacity-10 pointer-events-none z-10">
-                <i class="fa-solid fa-stamp text-6xl transform rotate-12" 
+                <i class="fa-solid fa-stamp text-4xl md:text-6xl transform rotate-12" 
                    :class="
                     (activeModal === 'archives' && archiveTab === 'video') ? 'text-japan-gold' : 
                     (activeModal === 'archives' && archiveTab === '3d') ? 'text-japan-purple' :
                     'text-japan-red'"></i>
             </div>
             
-            <div class="flex justify-between items-center p-6 border-b transition-colors duration-500 relative z-20"
+            <div class="flex justify-between items-center p-4 md:p-6 border-b transition-colors duration-500 relative z-20"
                  :class="
                     (activeModal === 'archives' && archiveTab === 'video') ? 'bg-black/50 border-japan-gold/10' :
                     (activeModal === 'archives' && archiveTab === '3d') ? 'bg-black/50 border-japan-purple/10' :
                     'bg-black/30 border-japan-red/10'">
                 
-                <div class="flex items-center gap-3">
-
+                <div class="flex items-center gap-3 overflow-hidden">
                     <div x-show="activeModal !== 'home'" class="flex items-center gap-3">
-                        <span class="w-1.5 h-6 transition-colors duration-500" 
+                        <span class="w-1 h-4 md:w-1.5 md:h-6 transition-colors duration-500" 
                               :class="
                                 (activeModal === 'archives' && archiveTab === 'video') ? 'bg-japan-gold' : 
                                 (activeModal === 'archives' && archiveTab === '3d') ? 'bg-japan-purple' :
                                 'bg-japan-red'"></span>
-                        <h2 class="text-xl font-serif font-bold tracking-widest uppercase" x-text="activeModal"></h2>
+                        <h2 class="text-lg md:text-xl font-serif font-bold tracking-widest uppercase" x-text="activeModal"></h2>
                     </div>
                 </div>
                 
-                <div x-show="activeModal === 'archives'" class="flex gap-2">
+                <div x-show="activeModal === 'archives'" class="flex gap-1 md:gap-2">
                     <button @click="setArchiveTab('cyber')" 
-                            class="px-4 py-1 text-xs font-bold uppercase tracking-wider transition-all duration-300 border rounded-sm"
+                            class="px-2 py-1 md:px-4 text-[10px] md:text-xs font-bold uppercase tracking-wider transition-all duration-300 border rounded-sm"
                             :class="archiveTab === 'cyber' 
                                 ? 'bg-japan-red border-japan-red text-white' 
                                 : 'border-gray-700 text-gray-500 hover:text-japan-red hover:border-japan-red'">
                         Cyber
                     </button>
                     <button @click="setArchiveTab('video')" 
-                            class="px-4 py-1 text-xs font-bold uppercase tracking-wider transition-all duration-300 border rounded-sm"
+                            class="px-2 py-1 md:px-4 text-[10px] md:text-xs font-bold uppercase tracking-wider transition-all duration-300 border rounded-sm"
                             :class="archiveTab === 'video' 
                                 ? 'bg-japan-gold border-japan-gold text-black' 
                                 : 'border-gray-700 text-gray-500 hover:text-japan-gold hover:border-japan-gold'">
                         Video
                     </button>
                     <button @click="setArchiveTab('3d')" 
-                            class="px-4 py-1 text-xs font-bold uppercase tracking-wider transition-all duration-300 border rounded-sm"
+                            class="px-2 py-1 md:px-4 text-[10px] md:text-xs font-bold uppercase tracking-wider transition-all duration-300 border rounded-sm"
                             :class="archiveTab === '3d' 
                                 ? 'bg-japan-purple border-japan-purple text-white' 
                                 : 'border-gray-700 text-gray-500 hover:text-japan-purple hover:border-japan-purple'">
@@ -472,24 +477,24 @@
                 </button>
             </div>
 
-            <div class="p-8 overflow-y-auto custom-scrollbar flex-1 relative z-10"
+            <div class="p-4 md:p-8 overflow-y-auto custom-scrollbar flex-1 relative z-10"
                  :class="activeModal === 'home' ? 'bg-black' : 'bg-dark-pattern'">
                 
-                <div x-show="activeModal === 'home'" class="relative h-full flex flex-col md:flex-row-reverse items-center justify-center gap-10 z-20">
+                <div x-show="activeModal === 'home'" class="relative h-full flex flex-col md:flex-row-reverse items-center justify-center gap-6 md:gap-10 z-20">
                     
 
-                    <div class="relative w-48 h-48 flex-shrink-0 mx-auto md:mx-0 z-10">
+                    <div class="relative w-32 h-32 md:w-48 md:h-48 flex-shrink-0 mx-auto md:mx-0 z-10">
                         <div class="absolute inset-0 border-2 border-japan-red/30 rounded-full scale-110"></div>
                         <img src="media/logoo.png" alt="Avatar" class="w-full h-full rounded-full object-cover shadow-lg hover:grayscale-0 transition-all duration-700">
                     </div>
-                    <div class="space-y-6 text-center md:text-left z-10">
+                    <div class="space-y-4 md:space-y-6 text-center md:text-left z-10">
                         <div>
-                            <h3 class="text-4xl font-serif font-bold mb-2 drop-shadow-lg">
+                            <h3 class="text-3xl md:text-4xl font-serif font-bold mb-2 drop-shadow-lg">
                                 <span class="text-white">Firas</span> <span class="text-japan-red">Mahmoud</span>
                             </h3>
-                            <p class="text-japan-red font-medium tracking-wide drop-shadow-md">In sometimes "FLR"</p>
+                            <p class="text-japan-red font-medium tracking-wide drop-shadow-md text-sm md:text-base">In sometimes "FLR"</p>
                         </div>
-                        <div class="text-gray-300 leading-relaxed font-light space-y-4 drop-shadow-md max-w-lg">
+                        <div class="text-gray-300 leading-relaxed font-light space-y-4 drop-shadow-md max-w-lg text-sm md:text-base">
                             <p>
                                 My name is Firas Mahmoud, and here you'll find everything I've accomplished and contributed to the world of <span class="font-bold text-white border-b border-japan-red/50">cybersecurity</span>.
                             </p>
@@ -498,10 +503,10 @@
                             </p>
                         </div>
                         <div class="pt-4 flex flex-wrap justify-center md:justify-start gap-2">
-                            <span class="px-4 py-1 text-xs border border-gray-600/50 bg-white/5 rounded-full text-gray-300 hover:border-japan-red hover:text-japan-red transition-colors">Video Editor</span>
-                            <span class="px-4 py-1 text-xs border border-gray-600/50 bg-white/5 rounded-full text-gray-300 hover:border-japan-red hover:text-japan-red transition-colors">3D Modeling</span>
-                            <span class="px-4 py-1 text-xs border border-gray-600/50 bg-white/5 rounded-full text-gray-300 hover:border-japan-red hover:text-japan-red transition-colors">CTF Player</span>
-                            <span class="px-4 py-1 text-xs border border-gray-600/50 bg-white/5 rounded-full text-gray-300 hover:border-japan-red hover:text-japan-red transition-colors">Cybersecurity</span>
+                            <span class="px-3 py-1 text-[10px] md:text-xs border border-gray-600/50 bg-white/5 rounded-full text-gray-300 hover:border-japan-red hover:text-japan-red transition-colors">Video Editor</span>
+                            <span class="px-3 py-1 text-[10px] md:text-xs border border-gray-600/50 bg-white/5 rounded-full text-gray-300 hover:border-japan-red hover:text-japan-red transition-colors">3D Modeling</span>
+                            <span class="px-3 py-1 text-[10px] md:text-xs border border-gray-600/50 bg-white/5 rounded-full text-gray-300 hover:border-japan-red hover:text-japan-red transition-colors">CTF Player</span>
+                            <span class="px-3 py-1 text-[10px] md:text-xs border border-gray-600/50 bg-white/5 rounded-full text-gray-300 hover:border-japan-red hover:text-japan-red transition-colors">Cybersecurity</span>
                         </div>
                     </div>
                 </div>
@@ -512,7 +517,7 @@
                         
                         <div class="text-center mb-8">
                             <span class="relative display-inline-block font-serif text-2xl font-bold text-gray-100">
-                                Cyber Knowledge Scrolls
+                                Write-ups
                             </span>
                             <div class="h-0.5 w-20 bg-japan-red mx-auto mt-2 opacity-80 mb-6"></div>
                             
@@ -646,7 +651,6 @@
                     <p class="text-gray-500 mb-12 font-light tracking-wide text-sm">Follow my digital footprint</p>
                     
                     <div class="flex flex-col gap-6 w-full max-w-xs">
-                        <!-- GitHub -->
                         <a href="https://github.com/RealFiras" target="_blank" class="flex items-center gap-4 p-4 bg-white/5 border border-gray-700 hover:border-japan-red hover:bg-white/10 transition-all duration-300 group rounded-sm">
                             <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center border border-gray-600 group-hover:border-japan-red text-white group-hover:text-japan-red transition-colors">
                                 <i class="fa-brands fa-github text-xl"></i>
@@ -655,7 +659,6 @@
                             <i class="fa-solid fa-arrow-right ml-auto text-gray-600 group-hover:text-japan-red transition-colors text-xs"></i>
                         </a>
 
-                        <!-- LinkedIn -->
                         <a href="http://linkedin.com/in/realfiras" target="_blank" class="flex items-center gap-4 p-4 bg-white/5 border border-gray-700 hover:border-japan-gold hover:bg-white/10 transition-all duration-300 group rounded-sm">
                             <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center border border-gray-600 group-hover:border-japan-gold text-white group-hover:text-japan-gold transition-colors">
                                 <i class="fa-brands fa-linkedin-in text-xl"></i>
@@ -664,7 +667,6 @@
                             <i class="fa-solid fa-arrow-right ml-auto text-gray-600 group-hover:text-japan-gold transition-colors text-xs"></i>
                         </a>
 
-                        <!-- Instagram -->
                         <a href="https://www.instagram.com/firas.j0/" target="_blank" class="flex items-center gap-4 p-4 bg-white/5 border border-gray-700 hover:border-pink-500 hover:bg-white/10 transition-all duration-300 group rounded-sm">
                             <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center border border-gray-600 group-hover:border-pink-500 text-white group-hover:text-pink-500 transition-colors">
                                 <i class="fa-brands fa-instagram text-xl"></i>
